@@ -17,11 +17,15 @@ export const useStorefrontContent = (): UseStorefrontContentResult => {
     let isActive = true;
 
     const refreshContent = async () => {
-      const snapshot = await storefrontContentRepository.getContent();
-      if (!isActive) {
-        return;
+      try {
+        const snapshot = await storefrontContentRepository.getContent();
+        if (!isActive) {
+          return;
+        }
+        setContent(snapshot);
+      } catch (error) {
+        console.error('Failed to load storefront content:', error);
       }
-      setContent(snapshot);
     };
 
     const handleStorage = (event: StorageEvent) => {

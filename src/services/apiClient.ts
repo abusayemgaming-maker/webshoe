@@ -89,8 +89,8 @@ function resolveApiBaseUrl(rawBaseUrl: string) {
   try {
     const baseUrl = new URL(trimmedBaseUrl, window.location.origin);
 
-    if (shouldUseCurrentHostname(baseUrl.hostname, window.location.hostname)) {
-      baseUrl.hostname = window.location.hostname;
+    if (shouldTreatLoopbackBackendAsUnavailable(baseUrl.hostname, window.location.hostname)) {
+      return '';
     }
 
     return baseUrl.toString().replace(/\/+$/, '');
@@ -99,7 +99,7 @@ function resolveApiBaseUrl(rawBaseUrl: string) {
   }
 }
 
-function shouldUseCurrentHostname(apiHostname: string, pageHostname: string) {
+function shouldTreatLoopbackBackendAsUnavailable(apiHostname: string, pageHostname: string) {
   return isLoopbackHost(apiHostname) && !isLoopbackHost(pageHostname);
 }
 
