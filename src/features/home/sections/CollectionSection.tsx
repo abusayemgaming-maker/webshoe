@@ -1,6 +1,7 @@
 import React from 'react';
 import ThreeDShoeCard from '../../catalog/components/ThreeDShoeCard';
-import ShoeCardSkeleton from '../../catalog/components/ShoeCardSkeleton';
+import SkeletonCard from '../../shared/ui/SkeletonCard';
+import { UIButton } from '../../shared/ui/primitives';
 import { Shoe } from '../../../types';
 
 interface CollectionSectionProps {
@@ -10,6 +11,7 @@ interface CollectionSectionProps {
   filteredShoes: Shoe[];
   loading: boolean;
   onSelectShoe: (shoe: Shoe) => void;
+  onRetry: () => void;
   searchQuery: string;
   setFilter: (filter: string) => void;
 }
@@ -21,6 +23,7 @@ const CollectionSection: React.FC<CollectionSectionProps> = ({
   filteredShoes,
   loading,
   onSelectShoe,
+  onRetry,
   searchQuery,
   setFilter,
 }) => {
@@ -68,13 +71,16 @@ const CollectionSection: React.FC<CollectionSectionProps> = ({
         {loading ? (
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((item) => (
-              <ShoeCardSkeleton key={item} />
+              <SkeletonCard key={item} />
             ))}
           </div>
         ) : catalogError ? (
           <div className="rounded-[2.5rem] border border-rose-200 bg-rose-50 p-12 text-center">
             <p className="text-xl font-black tracking-tight text-zinc-950">Collection unavailable.</p>
             <p className="mt-3 text-sm leading-7 text-rose-700">{catalogError}</p>
+            <UIButton onClick={onRetry} variant="primary" size="md" className="mt-6 rounded-full">
+              Retry
+            </UIButton>
           </div>
         ) : filteredShoes.length === 0 ? (
           <div className="rounded-[2.5rem] border border-dashed border-zinc-300 bg-white/70 p-12 text-center">

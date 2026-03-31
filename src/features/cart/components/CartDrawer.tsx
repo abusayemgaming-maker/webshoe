@@ -8,6 +8,7 @@ import { UIButton, UIDrawerPanel, UISurfaceCard } from '../../shared/ui/primitiv
 
 interface Props {
   isOpen: boolean;
+  mode?: 'overlay' | 'page';
   onClose: () => void;
 }
 
@@ -25,7 +26,7 @@ const initialContact: OrderContact = {
 
 const MAX_NOTES_LENGTH = 300;
 
-const CartDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
+const CartDrawer: React.FC<Props> = ({ isOpen, mode = 'overlay', onClose }) => {
   const drawerRef = React.useRef<HTMLElement>(null);
   const { cart, cartTotal, updateQuantity, removeFromCart, clearCart } = useCart();
   const [contact, setContact] = React.useState<OrderContact>(initialContact);
@@ -77,7 +78,7 @@ const CartDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
   useOverlayA11y({
     containerRef: drawerRef,
     initialFocusSelector: '[data-overlay-close="true"]',
-    isOpen,
+    isOpen: isOpen && mode === 'overlay',
     onClose: handleDismiss,
   });
 
@@ -130,16 +131,30 @@ const CartDrawer: React.FC<Props> = ({ isOpen, onClose }) => {
     return null;
   }
 
+  const isPageMode = mode === 'page';
+
   return (
     <div
-      className="fixed inset-0 z-[72] flex justify-end"
-      role="dialog"
-      aria-modal="true"
+      className={
+        isPageMode
+          ? 'relative mx-auto max-w-7xl'
+          : 'fixed inset-0 z-[72] flex justify-end'
+      }
+      role={isPageMode ? 'region' : 'dialog'}
+      aria-modal={isPageMode ? undefined : 'true'}
       aria-labelledby="cart-drawer-title"
     >
-      <div className="absolute inset-0 bg-black/35 backdrop-blur-sm" onClick={handleDismiss} />
+      {isPageMode ? null : <div className="absolute inset-0 bg-black/35 backdrop-blur-sm" onClick={handleDismiss} />}
 
-      <UIDrawerPanel ref={drawerRef} tabIndex={-1}>
+      <UIDrawerPanel
+        ref={drawerRef}
+        tabIndex={-1}
+        className={
+          isPageMode
+            ? 'min-h-[42rem] rounded-[2.5rem] border border-white/70 bg-white/85 shadow-[0_30px_90px_rgba(15,23,42,0.14)] backdrop-blur'
+            : undefined
+        }
+      >
         <div className="mb-8 flex items-start justify-between gap-4">
           <div>
             <p className="ds-type-eyebrow">Shopping bag</p>

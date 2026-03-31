@@ -12,7 +12,7 @@ const CollectionPage: React.FC = () => {
   const [filter, setFilter] = React.useState('All');
   const [searchQuery, setSearchQuery] = React.useState('');
   const [catalogSnapshot, setCatalogSnapshot] = React.useState<Shoe[]>([]);
-  const { catalogError, filteredShoes, loading } = useHomeCatalog(filter, searchQuery);
+  const { catalogError, filteredShoes, loading, retryCatalog } = useHomeCatalog(filter, searchQuery);
 
   React.useEffect(() => {
     let isMounted = true;
@@ -75,6 +75,7 @@ const CollectionPage: React.FC = () => {
         filteredShoes={filteredShoes}
         loading={loading}
         onSelectShoe={(shoe) => navigate(`/product/${encodeURIComponent(shoe.id)}`)}
+        onRetry={retryCatalog}
         searchQuery={searchQuery}
         setFilter={setFilter}
       />

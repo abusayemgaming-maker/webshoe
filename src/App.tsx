@@ -7,10 +7,12 @@ import CollectionPage from './pages/CollectionPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import WishlistPage from './pages/WishlistPage';
 import CheckoutPage from './pages/CheckoutPage';
+import NotFoundPage from './pages/NotFoundPage';
 import ErrorBoundary from './features/shared/ui/ErrorBoundary';
 import { CartProvider } from './features/cart/context/CartContext';
 import { WishlistProvider } from './features/wishlist/context/WishlistContext';
 import AdminRouteGuard from './features/admin/app/AdminRouteGuard';
+import ScrollToTop from './features/shared/ui/ScrollToTop';
 import AdminLayout from './features/admin/layout/AdminLayout';
 import AdminAssetsPage from './features/admin/pages/AdminAssetsPage';
 import AdminCatalogEditorPage from './features/admin/pages/AdminCatalogEditorPage';
@@ -25,6 +27,7 @@ const App: React.FC = () => (
     <CartProvider>
       <WishlistProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -32,6 +35,7 @@ const App: React.FC = () => (
               <Route path="product/:productId" element={<ProductDetailPage />} />
               <Route path="wishlist" element={<WishlistPage />} />
               <Route path="checkout" element={<CheckoutPage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route
               path="/admin/*"

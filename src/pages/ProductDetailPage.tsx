@@ -10,6 +10,7 @@ import { use3DViewerProfile } from '../features/shared/hooks/use3DViewerProfile'
 import { useInViewportOnce } from '../features/shared/hooks/useInViewportOnce';
 import { UIBadge, UIButton, UISurfaceCard } from '../features/shared/ui/primitives';
 import CommerceRouteHeader from '../features/shared/ui/CommerceRouteHeader';
+import SkeletonCard from '../features/shared/ui/SkeletonCard';
 
 const PRODUCT_LOAD_ERROR_MESSAGE = 'The latest product details could not be loaded. Please try again.';
 
@@ -133,12 +134,50 @@ const ProductDetailPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="px-4 pb-16 pt-24 md:px-6">
+      <div className="relative overflow-hidden px-4 pb-16 pt-24 md:px-6">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[38rem] bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.14),_transparent_36%),linear-gradient(180deg,_#f7f2eb_0%,_#ffffff_70%)]" />
         <CommerceRouteHeader
           eyebrow="Direct product URL"
           title="Loading product..."
           subtitle="Fetching the latest product details."
         />
+        <section className="mx-auto max-w-7xl">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr,0.95fr]">
+            <UISurfaceCard className="animate-pulse p-6 md:p-8">
+              <div className="rounded-[2rem] bg-zinc-100 p-6 md:p-8">
+                <div className="h-[22rem] rounded-[1.75rem] bg-zinc-200 md:h-[28rem]" />
+              </div>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                {[1, 2, 3].map((item) => (
+                  <div key={item} className="h-24 rounded-2xl bg-zinc-100" />
+                ))}
+              </div>
+            </UISurfaceCard>
+
+            <UISurfaceCard className="animate-pulse p-6 md:p-8">
+              <div className="h-4 w-24 rounded-full bg-zinc-100" />
+              <div className="mt-4 h-12 w-3/4 rounded-2xl bg-zinc-200" />
+              <div className="mt-6 flex gap-2">
+                <div className="h-8 w-24 rounded-full bg-zinc-100" />
+                <div className="h-8 w-28 rounded-full bg-zinc-100" />
+                <div className="h-8 w-24 rounded-full bg-zinc-100" />
+              </div>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {[1, 2, 3, 4].map((item) => (
+                  <div key={item} className="h-24 rounded-[1.5rem] bg-zinc-100" />
+                ))}
+              </div>
+              <div className="mt-8 h-14 rounded-2xl bg-zinc-950/10" />
+              <div className="mt-4 h-14 rounded-2xl bg-zinc-950/10" />
+            </UISurfaceCard>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3].map((item) => (
+              <SkeletonCard key={item} />
+            ))}
+          </div>
+        </section>
       </div>
     );
   }

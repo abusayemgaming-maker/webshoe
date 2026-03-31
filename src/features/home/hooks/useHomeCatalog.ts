@@ -7,12 +7,14 @@ interface UseHomeCatalogResult {
   catalogError: string | null;
   filteredShoes: Shoe[];
   loading: boolean;
+  retryCatalog: () => void;
 }
 
 export function useHomeCatalog(filter: string, searchQuery: string): UseHomeCatalogResult {
   const [shoes, setShoes] = React.useState<Shoe[]>([]);
   const [catalogError, setCatalogError] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(true);
+  const [reloadKey, setReloadKey] = React.useState(0);
   const deferredSearchQuery = React.useDeferredValue(searchQuery);
 
   React.useEffect(() => {
@@ -57,7 +59,7 @@ export function useHomeCatalog(filter: string, searchQuery: string): UseHomeCata
       isActive = false;
       unsubscribe?.();
     };
-  }, [filter]);
+  }, [filter, reloadKey]);
 
   const filteredShoes = React.useMemo(() => {
     const searchLower = deferredSearchQuery.trim().toLowerCase();
@@ -80,6 +82,7 @@ export function useHomeCatalog(filter: string, searchQuery: string): UseHomeCata
     catalogError,
     filteredShoes,
     loading,
+    retryCatalog: () => setReloadKey((currentKey) => currentKey + 1),
   };
 }
 

@@ -23,6 +23,7 @@ declare global {
   interface ImportMetaEnv {
     readonly VITE_API_BASE_URL?: string;
     readonly VITE_ADMIN_ENABLED?: 'true' | 'false';
+    readonly VITE_ADMIN_PASSWORD?: string;
     readonly VITE_ENABLE_SYSTEM_GUARDIAN?: 'true' | 'false';
   }
 

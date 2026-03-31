@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   const [isCartOpen, setIsCartOpen] = React.useState(false);
   const { cartCount, cartTotal } = useCart();
   const { wishlist } = useWishlist();
-  const { catalogError, filteredShoes, loading } = useHomeCatalog(filter, searchQuery);
+  const { catalogError, filteredShoes, loading, retryCatalog } = useHomeCatalog(filter, searchQuery);
   const { content: storefrontContent } = useStorefrontContent();
   const [featuredDrop, setFeaturedDrop] = React.useState<Shoe | null>(null);
   const [catalogSnapshot, setCatalogSnapshot] = React.useState<Shoe[]>([]);
@@ -146,6 +146,7 @@ const Home: React.FC = () => {
         filteredShoes={filteredShoes}
         loading={loading}
         onSelectShoe={setSelectedShoe}
+        onRetry={retryCatalog}
         searchQuery={searchQuery}
         setFilter={setFilter}
       />
