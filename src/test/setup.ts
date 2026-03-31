@@ -19,6 +19,7 @@ if (!customElements.get('model-viewer')) {
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root = null;
   readonly rootMargin = '0px';
+  readonly scrollMargin = '';
   readonly thresholds = [0];
 
   private readonly callback: IntersectionObserverCallback;
