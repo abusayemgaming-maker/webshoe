@@ -4,7 +4,7 @@ import { useCart } from '../../cart/context/useCart';
 import { useWishlist } from '../../wishlist/context/useWishlist';
 import { stockToneClassMap } from '../../shared/design/stockTone';
 import { useOverlayA11y } from '../../shared/hooks/useOverlayA11y';
-import { useToast } from '../../shared/context/ToastContext';
+import { useToast } from '../../shared/context/useToast';
 import { UIBadge, UIButton, UIDialogPanel, UISurfaceCard } from '../../shared/ui/primitives';
 
 interface Props {
@@ -76,7 +76,7 @@ const ShoeModal: React.FC<Props> = ({ shoe, onClose }) => {
           />
         </div>
 
-        <div className="w-full overflow-y-auto p-8 md:w-1/2 md:p-10">
+        <div className="w-full overflow-y-auto px-8 pb-8 pt-20 md:w-1/2 md:px-10 md:pb-10 md:pt-16">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="ds-type-eyebrow">{shoe.brand}</p>

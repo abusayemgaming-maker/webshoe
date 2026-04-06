@@ -8,7 +8,7 @@ interface CtaSectionProps {
 
 const CtaSection: React.FC<CtaSectionProps> = ({ ctaContent, onOpenCart }) => {
   return (
-    <section className="mx-auto mt-20 max-w-7xl">
+    <section className="storefront-shell mt-20">
       <div className="rounded-[3rem] border border-zinc-200 bg-[linear-gradient(135deg,_rgba(15,23,42,0.97),_rgba(40,40,52,0.96))] px-8 py-10 text-white shadow-[0_24px_80px_rgba(15,23,42,0.2)] md:px-12">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>

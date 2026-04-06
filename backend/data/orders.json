@@ -1,1 +1,153 @@
-[]
+[
+  {
+    "id": "WS-1048",
+    "createdAt": "2026-03-22T10:24:00.000Z",
+    "status": "Cancelled",
+    "itemCount": 2,
+    "subtotal": 575,
+    "shippingFee": 36,
+    "total": 611,
+    "updatedAt": "2026-04-05T11:03:52.162Z",
+    "contact": {
+      "name": "Ariana Walker",
+      "email": "ariana.walker@example.com",
+      "phone": "+1 415 555 0198",
+      "city": "San Francisco",
+      "country": "USA",
+      "shippingAddress": "188 Mission St, Apt 52",
+      "deliveryMethod": "Express",
+      "notes": "Please ring front desk before delivery."
+    },
+    "lineItems": [
+      {
+        "id": "ws-1048-li-1",
+        "productId": "1",
+        "productName": "Phantom Velocity X",
+        "size": "US 10",
+        "quantity": 1,
+        "unitPrice": 295,
+        "lineTotal": 295
+      },
+      {
+        "id": "ws-1048-li-2",
+        "productId": "4",
+        "productName": "Zenith Void Runner",
+        "size": "US 9",
+        "quantity": 1,
+        "unitPrice": 280,
+        "lineTotal": 280
+      }
+    ]
+  },
+  {
+    "id": "WS-1047",
+    "createdAt": "2026-03-21T15:42:00.000Z",
+    "status": "Pending",
+    "itemCount": 1,
+    "subtotal": 240,
+    "shippingFee": 14,
+    "total": 254,
+    "updatedAt": null,
+    "contact": {
+      "name": "Daniel Park",
+      "email": "daniel.park@example.com",
+      "phone": "+1 312 555 0126",
+      "city": "Chicago",
+      "country": "USA",
+      "shippingAddress": "451 W Belmont Ave",
+      "deliveryMethod": "Standard",
+      "notes": "Leave at side entrance if unavailable."
+    },
+    "lineItems": [
+      {
+        "id": "ws-1047-li-1",
+        "productId": "2",
+        "productName": "Aero-Core Prototype",
+        "size": "US 9",
+        "quantity": 1,
+        "unitPrice": 240,
+        "lineTotal": 240
+      }
+    ]
+  },
+  {
+    "id": "WS-1046",
+    "createdAt": "2026-03-20T07:18:00.000Z",
+    "status": "Shipped",
+    "itemCount": 3,
+    "subtotal": 735,
+    "shippingFee": 36,
+    "total": 771,
+    "updatedAt": null,
+    "contact": {
+      "name": "Nora Martinez",
+      "email": "nora.martinez@example.com",
+      "phone": "+1 786 555 0161",
+      "city": "Miami",
+      "country": "USA",
+      "shippingAddress": "92 Biscayne Blvd",
+      "deliveryMethod": "Express",
+      "notes": "Customer requested SMS delivery alert."
+    },
+    "lineItems": [
+      {
+        "id": "ws-1046-li-1",
+        "productId": "3",
+        "productName": "Cyber-Dunk Catalyst",
+        "size": "US 10",
+        "quantity": 1,
+        "unitPrice": 185,
+        "lineTotal": 185
+      },
+      {
+        "id": "ws-1046-li-2",
+        "productId": "6",
+        "productName": "Titanium Trek High",
+        "size": "US 11",
+        "quantity": 1,
+        "unitPrice": 350,
+        "lineTotal": 350
+      },
+      {
+        "id": "ws-1046-li-3",
+        "productId": "5",
+        "productName": "Prism Flux Low",
+        "size": "US 8",
+        "quantity": 1,
+        "unitPrice": 200,
+        "lineTotal": 200
+      }
+    ]
+  },
+  {
+    "id": "WS-1045",
+    "createdAt": "2026-03-18T19:06:00.000Z",
+    "status": "Delivered",
+    "itemCount": 1,
+    "subtotal": 295,
+    "shippingFee": 13,
+    "total": 308,
+    "updatedAt": null,
+    "contact": {
+      "name": "Samuel Greene",
+      "email": "samuel.greene@example.com",
+      "phone": "+1 646 555 0183",
+      "city": "New York",
+      "country": "USA",
+      "shippingAddress": "77 Hudson Yards",
+      "deliveryMethod": "Standard",
+      "notes": "Delivered to building concierge."
+    },
+    "lineItems": [
+      {
+        "id": "ws-1045-li-1",
+        "productId": "1",
+        "productName": "Phantom Velocity X",
+        "size": "US 9",
+        "quantity": 1,
+        "unitPrice": 295,
+        "lineTotal": 295
+      }
+    ]
+  }
+]

@@ -11,6 +11,7 @@ const mockedCatalogService = vi.hoisted(() => ({
 const mockedCatalogEditorService = vi.hoisted(() => ({
   duplicateProduct: vi.fn(),
   archiveProduct: vi.fn(),
+  publishProduct: vi.fn(),
   unpublishProduct: vi.fn(),
 }));
 
@@ -42,6 +43,13 @@ const baseDraftProduct: AdminCatalogProductSummary = {
   publishState: 'Draft',
 };
 
+const baseArchivedProduct: AdminCatalogProductSummary = {
+  ...basePublishedProduct,
+  id: 'prod-3',
+  name: 'Restore Target',
+  publishState: 'Archived',
+};
+
 const renderCatalogPage = () =>
   render(
     <MemoryRouter initialEntries={['/admin/catalog']}>
@@ -54,13 +62,16 @@ const renderCatalogPage = () =>
 
 describe('AdminCatalogPage', () => {
   beforeEach(() => {
-    mockedCatalogService.listProducts.mockResolvedValue([basePublishedProduct, baseDraftProduct]);
+    mockedCatalogService.listProducts.mockResolvedValue([basePublishedProduct, baseDraftProduct, baseArchivedProduct]);
     mockedCatalogEditorService.duplicateProduct.mockResolvedValue({
       productId: 'prod-copy',
       duplicatedAt: '2026-03-25T08:00:00.000Z',
     });
     mockedCatalogEditorService.archiveProduct.mockResolvedValue({
       archivedAt: '2026-03-25T08:05:00.000Z',
+    });
+    mockedCatalogEditorService.publishProduct.mockResolvedValue({
+      publishedAt: '2026-03-25T08:07:00.000Z',
     });
     mockedCatalogEditorService.unpublishProduct.mockResolvedValue({
       unpublishedAt: '2026-03-25T08:10:00.000Z',
@@ -73,8 +84,12 @@ describe('AdminCatalogPage', () => {
 
   it('unpublishes a published product from the catalog list with a real mutation path', async () => {
     mockedCatalogService.listProducts
-      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct])
-      .mockResolvedValueOnce([{ ...basePublishedProduct, publishState: 'Draft' }, baseDraftProduct]);
+      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct, baseArchivedProduct])
+      .mockResolvedValueOnce([
+        { ...basePublishedProduct, publishState: 'Draft' },
+        baseDraftProduct,
+        baseArchivedProduct,
+      ]);
 
     renderCatalogPage();
 
@@ -94,8 +109,12 @@ describe('AdminCatalogPage', () => {
 
   it('archives a non-published product from the catalog list with a real mutation path', async () => {
     mockedCatalogService.listProducts
-      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct])
-      .mockResolvedValueOnce([basePublishedProduct, { ...baseDraftProduct, publishState: 'Archived' }]);
+      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct, baseArchivedProduct])
+      .mockResolvedValueOnce([
+        basePublishedProduct,
+        { ...baseDraftProduct, publishState: 'Archived' },
+        baseArchivedProduct,
+      ]);
 
     renderCatalogPage();
 
@@ -111,10 +130,38 @@ describe('AdminCatalogPage', () => {
     expect(mockedCatalogService.listProducts).toHaveBeenCalledTimes(2);
   });
 
+  it('publishes an archived product from the catalog list instead of offering a redundant archive action', async () => {
+    mockedCatalogService.listProducts
+      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct, baseArchivedProduct])
+      .mockResolvedValueOnce([
+        basePublishedProduct,
+        baseDraftProduct,
+        { ...baseArchivedProduct, publishState: 'Published' },
+      ]);
+
+    renderCatalogPage();
+
+    await screen.findByText('Restore Target');
+    fireEvent.click(screen.getByRole('button', { name: 'Publish' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Publish product' }));
+
+    await waitFor(() => {
+      expect(mockedCatalogEditorService.publishProduct).toHaveBeenCalledWith('prod-3');
+    });
+    expect(await screen.findByText(/published "restore target" at/i)).toBeInTheDocument();
+    expect(screen.getByText(/live on storefront routes again/i)).toBeInTheDocument();
+    expect(mockedCatalogEditorService.archiveProduct).not.toHaveBeenCalledWith('prod-3');
+  });
+
   it('duplicates a product and opens the new draft in the editor', async () => {
     mockedCatalogService.listProducts
-      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct])
-      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct, { ...basePublishedProduct, id: 'prod-copy', name: 'Step10 Prime Copy', publishState: 'Draft' }]);
+      .mockResolvedValueOnce([basePublishedProduct, baseDraftProduct, baseArchivedProduct])
+      .mockResolvedValueOnce([
+        basePublishedProduct,
+        baseDraftProduct,
+        baseArchivedProduct,
+        { ...basePublishedProduct, id: 'prod-copy', name: 'Step10 Prime Copy', publishState: 'Draft' },
+      ]);
 
     renderCatalogPage();
 

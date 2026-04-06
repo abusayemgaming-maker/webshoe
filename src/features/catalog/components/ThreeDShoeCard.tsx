@@ -85,12 +85,7 @@ const ThreeDShoeCard: React.FC<Props> = ({ shoe, onClick }) => {
   };
 
   const openDetails = () => onClick(shoe);
-  const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const target = event.target;
-    if (target instanceof HTMLElement && target.closest('[data-card-preview="true"]')) {
-      return;
-    }
-
+  const handleCardClick = () => {
     openDetails();
   };
 
@@ -181,30 +176,6 @@ const ThreeDShoeCard: React.FC<Props> = ({ shoe, onClick }) => {
 
       <div className="absolute inset-x-10 bottom-28 h-10 rounded-full bg-zinc-950/10 blur-2xl transition duration-700 group-hover:bg-zinc-950/15" />
 
-      <UIButton
-        onClick={(event) => {
-          event.stopPropagation();
-          toggleWishlist(shoe);
-        }}
-        aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-        variant={isWishlisted ? 'primary' : 'secondary'}
-        size="icon"
-        className={`absolute top-5 right-5 z-20 ${
-          isWishlisted
-            ? 'border-pink-500 bg-pink-500 text-white shadow-lg'
-            : 'border-white/80 bg-white/80 text-zinc-500 backdrop-blur hover:text-pink-500'
-        }`}
-      >
-        <svg className="h-5 w-5" fill={isWishlisted ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2.3"
-            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-          />
-        </svg>
-      </UIButton>
-
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="ds-type-eyebrow">{shoe.brand}</p>
@@ -214,6 +185,29 @@ const ThreeDShoeCard: React.FC<Props> = ({ shoe, onClick }) => {
         </div>
 
         <div className="flex flex-col items-end gap-2">
+          <UIButton
+            onClick={(event) => {
+              event.stopPropagation();
+              toggleWishlist(shoe);
+            }}
+            aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+            variant={isWishlisted ? 'primary' : 'secondary'}
+            size="icon"
+            className={`shrink-0 ${
+              isWishlisted
+                ? 'border-pink-500 bg-pink-500 text-white shadow-lg'
+                : 'border-white/80 bg-white/80 text-zinc-500 backdrop-blur hover:text-pink-500'
+            }`}
+          >
+            <svg className="h-5 w-5" fill={isWishlisted ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.3"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+          </UIButton>
           {shoe.isNew && (
             <UIBadge tone="inverse">New</UIBadge>
           )}

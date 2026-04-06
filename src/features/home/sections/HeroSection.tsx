@@ -33,7 +33,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const { revealClassName, targetRef } = useScrollReveal<HTMLElement>('0px 0px -8% 0px');
 
   return (
-    <section ref={targetRef} className={`mx-auto max-w-7xl ${revealClassName}`}>
+    <section ref={targetRef} className={`storefront-shell ${revealClassName}`}>
       <div className="rounded-full border border-white/70 bg-white/70 px-5 py-3 text-center text-[10px] font-black uppercase tracking-[0.35em] text-zinc-600 shadow-[0_10px_25px_rgba(15,23,42,0.04)] backdrop-blur">
         {heroContent.stripText}
       </div>

@@ -47,6 +47,26 @@ const renderEditor = (initialEntries: Array<string | { pathname: string; state?:
     </MemoryRouter>
   );
 
+const getHeroImage = (container: HTMLElement) => container.querySelector('img[alt*="hero preview"]') as HTMLImageElement | null;
+
+const getModelViewer = (container: HTMLElement) => container.querySelector('model-viewer') as HTMLElement | null;
+
+const loadMediaPreviews = async (container: HTMLElement) => {
+  const heroImage = getHeroImage(container);
+  const modelViewer = getModelViewer(container);
+
+  expect(heroImage).not.toBeNull();
+  expect(modelViewer).not.toBeNull();
+
+  fireEvent.load(heroImage as HTMLImageElement);
+  fireEvent.load(modelViewer as HTMLElement);
+
+  await waitFor(() => {
+    expect(screen.getByText('Hero: Ready')).toBeInTheDocument();
+    expect(screen.getByText('3D: Ready')).toBeInTheDocument();
+  });
+};
+
 describe('AdminCatalogEditorPage', () => {
   beforeEach(() => {
     mockedCatalogEditorService.createEmptyDraft.mockReturnValue(buildDraft({
@@ -151,5 +171,91 @@ describe('AdminCatalogEditorPage', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /back to catalog/i }));
     expect(await screen.findByText('Catalog Route')).toBeInTheDocument();
+  });
+
+  it('marks valid media as ready after preview load events', async () => {
+    const { container } = renderEditor();
+
+    await screen.findByText(/draft id: 1/i);
+    await loadMediaPreviews(container);
+  });
+
+  it('keeps media readiness stable when non-media fields change', async () => {
+    const { container } = renderEditor();
+
+    await screen.findByText(/draft id: 1/i);
+    await loadMediaPreviews(container);
+
+    fireEvent.change(screen.getByLabelText(/brand/i), {
+      target: { value: 'Phantom Velocity X Mark II' },
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText('Hero: Ready')).toBeInTheDocument();
+      expect(screen.getByText('3D: Ready')).toBeInTheDocument();
+      expect(screen.queryByText('Hero: loading')).not.toBeInTheDocument();
+      expect(screen.queryByText('3D: loading')).not.toBeInTheDocument();
+    });
+  });
+
+  it('restarts hero readiness when the hero url changes and resolves after a load event', async () => {
+    const { container } = renderEditor();
+
+    await screen.findByText(/draft id: 1/i);
+    await loadMediaPreviews(container);
+
+    fireEvent.change(screen.getByLabelText(/hero image url/i), {
+      target: { value: 'https://example.com/hero-next.jpg' },
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText('Hero: loading')).toBeInTheDocument();
+    });
+
+    const updatedHeroImage = getHeroImage(container);
+    expect(updatedHeroImage).not.toBeNull();
+
+    fireEvent.load(updatedHeroImage as HTMLImageElement);
+
+    await waitFor(() => {
+      expect(screen.getByText('Hero: Ready')).toBeInTheDocument();
+    });
+  });
+
+  it('marks hero readiness as error when the hero preview fails to load', async () => {
+    const { container } = renderEditor();
+
+    await screen.findByText(/draft id: 1/i);
+
+    fireEvent.change(screen.getByLabelText(/hero image url/i), {
+      target: { value: 'https://example.com/broken-hero.jpg' },
+    });
+
+    await waitFor(() => {
+      expect(screen.getByText('Hero: loading')).toBeInTheDocument();
+    });
+
+    const brokenHeroImage = getHeroImage(container);
+    expect(brokenHeroImage).not.toBeNull();
+
+    fireEvent.error(brokenHeroImage as HTMLImageElement);
+
+    await waitFor(() => {
+      expect(screen.getByText('Hero: error')).toBeInTheDocument();
+    });
+  });
+
+  it('renders an error-oriented shell for missing edit routes', async () => {
+    mockedCatalogEditorService.getProductDraft.mockResolvedValueOnce(null);
+    renderEditor(['/admin/catalog/99999/edit']);
+
+    expect(await screen.findByText(/unable to load this product draft\./i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /product unavailable/i })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: /edit product 99999/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^publish$/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^unpublish$/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^save draft$/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^save changes$/i })).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /return to catalog/i })).toBeInTheDocument();
   });
 });

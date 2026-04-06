@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { getDefaultStorefrontContentSnapshot } from '../../content/storefront';
 import { CartProvider } from '../../context/CartContext';
@@ -417,6 +417,62 @@ describe('backend-mode integrated truth flows', () => {
     const matchingFeatureNames = await screen.findAllByText('Backend Feature Runner');
     expect(matchingFeatureNames.length).toBeGreaterThan(0);
     expect(screen.getByRole('button', { name: 'Open backend feature' })).toBeInTheDocument();
+  });
+
+  it('waits for backend storefront content before loading the featured product', async () => {
+    backendTransport.state.content = {
+      ...getDefaultStorefrontContentSnapshot(),
+      featuredDrop: {
+        ...getDefaultStorefrontContentSnapshot().featuredDrop,
+        productId: 'seed-backend-1',
+      },
+    };
+
+    const defaultGetImplementation = backendTransport.get.getMockImplementation();
+    if (!defaultGetImplementation) {
+      throw new Error('Expected backend GET transport implementation to be configured.');
+    }
+
+    let resolveContentRequest: ((value: ReturnType<typeof getDefaultStorefrontContentSnapshot>) => void) | null =
+      null;
+    const pendingContentRequest = new Promise<ReturnType<typeof getDefaultStorefrontContentSnapshot>>((resolve) => {
+      resolveContentRequest = resolve;
+    });
+
+    backendTransport.get.mockImplementation(async (path: string, query?: Record<string, unknown>) => {
+      if (path === '/api/storefront-content') {
+        return pendingContentRequest;
+      }
+
+      return defaultGetImplementation(path, query);
+    });
+
+    await act(async () => {
+      renderHome();
+    });
+
+    await waitFor(() => {
+      expect(backendTransport.get).toHaveBeenCalledWith('/api/storefront-content');
+    });
+
+    expect(
+      backendTransport.get.mock.calls.some(([path]) => path === '/api/shoes/6')
+    ).toBe(false);
+    expect(
+      backendTransport.get.mock.calls.some(([path]) => path === '/api/shoes/seed-backend-1')
+    ).toBe(false);
+
+    resolveContentRequest?.(clone(backendTransport.state.content));
+
+    await waitFor(() => {
+      expect(
+        backendTransport.get.mock.calls.some(([path]) => path === '/api/shoes/seed-backend-1')
+      ).toBe(true);
+    });
+
+    expect(
+      backendTransport.get.mock.calls.some(([path]) => path === '/api/shoes/6')
+    ).toBe(false);
   });
 
   it('shares backend order submission with admin order management', async () => {

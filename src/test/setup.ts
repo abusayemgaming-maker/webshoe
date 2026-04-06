@@ -3,16 +3,18 @@ import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
 // Mock model-viewer since it's a web component not supported in jsdom
-class MockModelViewer extends HTMLElement {
-  cameraOrbit = '0deg 75deg 105%';
-  cameraTarget = 'auto auto auto';
-  fieldOfView = 'auto';
-  jumpCameraToGoal = vi.fn();
-  resetTurntableRotation = vi.fn();
-}
+if (typeof HTMLElement !== 'undefined' && typeof customElements !== 'undefined') {
+  class MockModelViewer extends HTMLElement {
+    cameraOrbit = '0deg 75deg 105%';
+    cameraTarget = 'auto auto auto';
+    fieldOfView = 'auto';
+    jumpCameraToGoal = vi.fn();
+    resetTurntableRotation = vi.fn();
+  }
 
-if (!customElements.get('model-viewer')) {
-  customElements.define('model-viewer', MockModelViewer);
+  if (!customElements.get('model-viewer')) {
+    customElements.define('model-viewer', MockModelViewer);
+  }
 }
 
 // Mock IntersectionObserver
@@ -45,4 +47,6 @@ class MockIntersectionObserver implements IntersectionObserver {
   takeRecords = vi.fn(() => []);
 }
 
-vi.stubGlobal('IntersectionObserver', MockIntersectionObserver);
+if (typeof IntersectionObserver === 'undefined') {
+  vi.stubGlobal('IntersectionObserver', MockIntersectionObserver);
+}

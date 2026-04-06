@@ -30,7 +30,7 @@ const CheckoutPage: React.FC = () => {
         subtitle="Review your bag, confirm delivery details, and place the order from a dedicated page instead of a blank overlay."
       />
 
-      <UISurfaceCard tone="glass" className="mx-auto mb-8 flex max-w-7xl flex-wrap items-center justify-between gap-4 p-5">
+      <UISurfaceCard tone="glass" className="storefront-shell mb-8 flex flex-wrap items-center justify-between gap-4 p-5">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Navigation</p>
           <p className="mt-2 text-sm text-zinc-600">Need to review another pair before placing the order?</p>

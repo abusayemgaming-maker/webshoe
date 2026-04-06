@@ -1,0 +1,164 @@
+- generic [ref=e16]:
+  - complementary [ref=e17]:
+    - paragraph [ref=e18]: Webshoe operations
+    - heading "Owner panel" [level=1] [ref=e19]
+    - paragraph [ref=e20]: Route-isolated workspace for catalog, order, and storefront control.
+    - generic [ref=e21]:
+      - paragraph [ref=e22]: Session
+      - paragraph [ref=e23]: Development workspace
+      - paragraph [ref=e24]: Last checked 5:44:42 AM
+    - navigation "Admin sections" [ref=e25]:
+      - generic [ref=e26]:
+        - paragraph [ref=e27]: Core
+        - link "Dashboard Owner command center" [ref=e29] [cursor=pointer]:
+          - /url: /admin/dashboard
+          - paragraph [ref=e30]: Dashboard
+          - paragraph [ref=e31]: Owner command center
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Commerce
+        - generic [ref=e34]:
+          - link "Catalog Product lineup and lifecycle" [ref=e35] [cursor=pointer]:
+            - /url: /admin/catalog
+            - paragraph [ref=e36]: Catalog
+            - paragraph [ref=e37]: Product lineup and lifecycle
+          - link "Catalog Editor Create and stage product entries" [ref=e38] [cursor=pointer]:
+            - /url: /admin/catalog/new
+            - paragraph [ref=e39]: Catalog Editor
+            - paragraph [ref=e40]: Create and stage product entries
+          - link "Orders Fulfillment and delivery queue" [ref=e41] [cursor=pointer]:
+            - /url: /admin/orders
+            - paragraph [ref=e42]: Orders
+            - paragraph [ref=e43]: Fulfillment and delivery queue
+      - generic [ref=e44]:
+        - paragraph [ref=e45]: Storefront
+        - generic [ref=e46]:
+          - link "Content Merchandising and storefront copy" [ref=e47] [cursor=pointer]:
+            - /url: /admin/content
+            - paragraph [ref=e48]: Content
+            - paragraph [ref=e49]: Merchandising and storefront copy
+          - link "Assets Media and 3D readiness inventory" [ref=e50] [cursor=pointer]:
+            - /url: /admin/assets
+            - paragraph [ref=e51]: Assets
+            - paragraph [ref=e52]: Media and 3D readiness inventory
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: Platform
+        - link "Settings Team policy and channel controls" [ref=e56] [cursor=pointer]:
+          - /url: /admin/settings
+          - paragraph [ref=e57]: Settings
+          - paragraph [ref=e58]: Team policy and channel controls
+  - main [active] [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e63]:
+        - paragraph [ref=e64]: Orders
+        - heading "Fulfillment operations" [level=2] [ref=e65]
+        - paragraph [ref=e66]: Manage order lifecycle from intake through delivery with clear customer context and status control.
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - text: Search orders
+              - textbox "Search orders" [ref=e71]:
+                - /placeholder: Order ID, customer name, email
+                - text: Nora
+            - generic [ref=e72]:
+              - text: Status
+              - combobox "Status" [ref=e73]:
+                - option "All"
+                - option "Pending"
+                - option "Processing"
+                - option "Shipped" [selected]
+                - option "Delivered"
+                - option "Cancelled"
+            - button "Reset filters" [ref=e75]
+          - paragraph [ref=e76]: Showing 1 of 4 orders
+        - generic [ref=e77]:
+          - article [ref=e78]:
+            - table [ref=e80]:
+              - rowgroup [ref=e81]:
+                - row "Order Customer Delivery Total Status" [ref=e82]:
+                  - columnheader "Order" [ref=e83]
+                  - columnheader "Customer" [ref=e84]
+                  - columnheader "Delivery" [ref=e85]
+                  - columnheader "Total" [ref=e86]
+                  - columnheader "Status" [ref=e87]
+              - rowgroup [ref=e88]:
+                - button "WS-1046 Mar 20, 2026, 1:18 PM Nora Martinez nora.martinez@example.com Express $771 Shipped" [ref=e111] [cursor=pointer]:
+                  - cell "WS-1046 Mar 20, 2026, 1:18 PM" [ref=e112]:
+                    - paragraph [ref=e113]: WS-1046
+                    - paragraph [ref=e114]: Mar 20, 2026, 1:18 PM
+                  - cell "Nora Martinez nora.martinez@example.com" [ref=e115]:
+                    - paragraph [ref=e116]: Nora Martinez
+                    - paragraph [ref=e117]: nora.martinez@example.com
+                  - cell "Express" [ref=e118]
+                  - cell "$771" [ref=e119]
+                  - cell "Shipped" [ref=e120]:
+                    - generic [ref=e121]: Shipped
+          - article [ref=e133]:
+            - generic [ref=e204]:
+              - generic [ref=e205]:
+                - paragraph [ref=e206]: Order detail
+                - generic [ref=e207]:
+                  - heading "WS-1046" [level=3] [ref=e208]
+                  - generic [ref=e209]: Shipped
+                - paragraph [ref=e210]: Mar 20, 2026, 1:18 PM
+              - generic [ref=e211]:
+                - paragraph [ref=e212]: Status action
+                - generic [ref=e213]:
+                  - generic [ref=e214]:
+                    - text: Update status
+                    - combobox "Update status" [ref=e215]:
+                      - option "Pending"
+                      - option "Processing"
+                      - option "Shipped"
+                      - option "Delivered" [selected]
+                      - option "Cancelled"
+                  - button "Review change" [ref=e216]
+              - generic [ref=e217]:
+                - paragraph [ref=e218]: Customer & delivery
+                - generic [ref=e219]:
+                  - paragraph [ref=e220]: "Name: Nora Martinez"
+                  - paragraph [ref=e221]: "Email: nora.martinez@example.com"
+                  - paragraph [ref=e222]: "Phone: +1 786 555 0161"
+                  - paragraph [ref=e223]: "Delivery: Express"
+                  - paragraph [ref=e224]: "Address: 92 Biscayne Blvd, Miami, USA"
+                  - paragraph [ref=e225]: "Notes: Customer requested SMS delivery alert."
+              - generic [ref=e226]:
+                - paragraph [ref=e227]: Totals
+                - generic [ref=e228]:
+                  - paragraph [ref=e229]: "Items: 3"
+                  - paragraph [ref=e230]: "Subtotal: $735"
+                  - paragraph [ref=e231]: "Shipping: $36"
+                  - paragraph [ref=e232]: "Total: $771"
+              - table [ref=e234]:
+                - rowgroup [ref=e235]:
+                  - row "Product Size Qty Unit Line total" [ref=e236]:
+                    - columnheader "Product" [ref=e237]
+                    - columnheader "Size" [ref=e238]
+                    - columnheader "Qty" [ref=e239]
+                    - columnheader "Unit" [ref=e240]
+                    - columnheader "Line total" [ref=e241]
+                - rowgroup [ref=e242]:
+                  - row "Cyber-Dunk Catalyst Product 3 US 10 1 $185 $185" [ref=e243]:
+                    - cell "Cyber-Dunk Catalyst Product 3" [ref=e244]:
+                      - paragraph [ref=e245]: Cyber-Dunk Catalyst
+                      - paragraph [ref=e246]: Product 3
+                    - cell "US 10" [ref=e247]
+                    - cell "1" [ref=e248]
+                    - cell "$185" [ref=e249]
+                    - cell "$185" [ref=e250]
+                  - row "Titanium Trek High Product 6 US 11 1 $350 $350" [ref=e251]:
+                    - cell "Titanium Trek High Product 6" [ref=e252]:
+                      - paragraph [ref=e253]: Titanium Trek High
+                      - paragraph [ref=e254]: Product 6
+                    - cell "US 11" [ref=e255]
+                    - cell "1" [ref=e256]
+                    - cell "$350" [ref=e257]
+                    - cell "$350" [ref=e258]
+                  - row "Prism Flux Low Product 5 US 8 1 $200 $200" [ref=e259]:
+                    - cell "Prism Flux Low Product 5" [ref=e260]:
+                      - paragraph [ref=e261]: Prism Flux Low
+                      - paragraph [ref=e262]: Product 5
+                    - cell "US 8" [ref=e263]
+                    - cell "1" [ref=e264]
+                    - cell "$200" [ref=e265]
+                    - cell "$200" [ref=e266]

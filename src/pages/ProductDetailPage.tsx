@@ -6,7 +6,7 @@ import { storefrontCatalogRepository } from '../features/commerce/repositories';
 import { useCart } from '../features/cart/context/useCart';
 import { useWishlist } from '../features/wishlist/context/useWishlist';
 import { stockToneClassMap } from '../features/shared/design/stockTone';
-import { useToast } from '../features/shared/context/ToastContext';
+import { useToast } from '../features/shared/context/useToast';
 import { use3DViewerProfile } from '../features/shared/hooks/use3DViewerProfile';
 import { useDocumentTitle } from '../features/shared/hooks/useDocumentTitle';
 import { useInViewportOnce } from '../features/shared/hooks/useInViewportOnce';
@@ -153,7 +153,7 @@ const ProductDetailPage: React.FC = () => {
     const resolvedSize = selectedSize || shoe.sizes[0] || 'US 9';
     addToCart(shoe, resolvedSize);
     showToast('Added to bag', 'success');
-  }, [addToCart, selectedSize, shoe]);
+  }, [addToCart, selectedSize, shoe, showToast]);
 
   const handleWishlistToggle = React.useCallback(() => {
     if (!shoe) {
@@ -179,7 +179,7 @@ const ProductDetailPage: React.FC = () => {
           title="Loading product..."
           subtitle="Fetching the latest product details."
         />
-        <section className="mx-auto max-w-7xl">
+        <section className="storefront-shell">
           <div className="grid gap-8 lg:grid-cols-[1.05fr,0.95fr]">
             <UISurfaceCard className="animate-pulse p-6 md:p-8">
               <div className="rounded-[2rem] bg-zinc-100 p-6 md:p-8">
@@ -229,7 +229,7 @@ const ProductDetailPage: React.FC = () => {
             title="Product details could not be loaded."
             subtitle={loadError}
           />
-          <UISurfaceCard className="mx-auto flex max-w-7xl flex-wrap gap-3 p-8">
+          <UISurfaceCard className="storefront-shell flex flex-wrap gap-3 p-8">
             <UIButton
               onClick={() => setReloadKey((currentKey) => currentKey + 1)}
               variant="primary"
@@ -256,7 +256,7 @@ const ProductDetailPage: React.FC = () => {
           title="This product could not be found."
           subtitle="The product may have been removed or the URL is invalid."
         />
-        <UISurfaceCard className="mx-auto max-w-7xl p-8">
+        <UISurfaceCard className="storefront-shell p-8">
           <Link
             to="/collection"
             className="inline-flex rounded-full bg-zinc-950 px-5 py-3 text-xs font-black uppercase tracking-[0.25em] text-white"
@@ -296,7 +296,7 @@ const ProductDetailPage: React.FC = () => {
         subtitle="Route-backed product detail with a clearer purchase flow, size guidance, and trust signals."
       />
 
-      <section className="mx-auto max-w-7xl">
+      <section className="storefront-shell">
         <nav
           aria-label="Breadcrumb"
           className="mb-6 flex flex-wrap items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-zinc-500"
@@ -504,7 +504,7 @@ const ProductDetailPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="mx-auto mt-10 max-w-7xl">
+      <section className="storefront-shell mt-10">
         <div className="grid gap-4 md:grid-cols-3">
           <UISurfaceCard className="rounded-[2rem] p-6">
             <p className="ds-type-eyebrow">Materials</p>
@@ -529,7 +529,7 @@ const ProductDetailPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="mx-auto mt-10 max-w-7xl">
+      <section className="storefront-shell mt-10">
         <UISurfaceCard className="rounded-[2rem] p-6 md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
@@ -558,7 +558,7 @@ const ProductDetailPage: React.FC = () => {
       </section>
 
       {relatedShoes.length > 0 ? (
-        <section className="mx-auto mt-12 max-w-7xl">
+        <section className="storefront-shell mt-12">
           <div className="mb-5 flex items-center justify-between">
             <h3 className="text-2xl font-black tracking-tight text-zinc-950">You may also like</h3>
             <Link

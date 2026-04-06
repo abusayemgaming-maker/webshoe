@@ -62,7 +62,7 @@ const AdminCatalogPage: React.FC = () => {
   const [actionNotice, setActionNotice] = React.useState<string | null>(null);
   const [actionNoticeTone, setActionNoticeTone] = React.useState<'neutral' | 'success' | 'warning'>('neutral');
   const [pendingAction, setPendingAction] = React.useState<{
-    type: 'duplicate' | 'archive' | 'unpublish';
+    type: 'duplicate' | 'archive' | 'publish' | 'unpublish';
     product: AdminCatalogProductSummary;
   } | null>(null);
   const [isConfirmingAction, setIsConfirmingAction] = React.useState(false);
@@ -151,8 +151,22 @@ const AdminCatalogPage: React.FC = () => {
   };
 
   const openArchiveOrUnpublishConfirmation = (product: AdminCatalogProductSummary) => {
+    const readinessReport = getCatalogPublishReadiness(product);
+    if (product.publishState === 'Archived' && readinessReport.blockingIssues.length > 0) {
+      setActionNotice(
+        `Cannot publish "${product.name}" from the catalog list yet. Resolve blocking readiness issues in the editor first.`
+      );
+      setActionNoticeTone('warning');
+      return;
+    }
+
     setPendingAction({
-      type: product.publishState === 'Published' ? 'unpublish' : 'archive',
+      type:
+        product.publishState === 'Published'
+          ? 'unpublish'
+          : product.publishState === 'Archived'
+            ? 'publish'
+            : 'archive',
       product,
     });
   };
@@ -194,6 +208,19 @@ const AdminCatalogPage: React.FC = () => {
             },
           },
         });
+      } else if (pendingAction.type === 'publish') {
+        const published = await adminCatalogEditorService.publishProduct(pendingAction.product.id);
+        if (!published) {
+          setActionNotice(`Unable to publish "${pendingAction.product.name}" right now.`);
+          setActionNoticeTone('warning');
+          return;
+        }
+
+        setActionNotice(
+          `Published "${pendingAction.product.name}" at ${new Date(published.publishedAt).toLocaleTimeString()}. It is live on storefront routes again.`
+        );
+        setActionNoticeTone('success');
+        await loadProducts();
       } else if (pendingAction.type === 'unpublish') {
         const unpublished = await adminCatalogEditorService.unpublishProduct(pendingAction.product.id);
         if (!unpublished) {
@@ -240,6 +267,10 @@ const AdminCatalogPage: React.FC = () => {
       return `Unpublish ${pendingAction.product.name}?`;
     }
 
+    if (pendingAction.type === 'publish') {
+      return `Publish ${pendingAction.product.name}?`;
+    }
+
     return `Archive ${pendingAction.product.name}?`;
   }, [pendingAction]);
 
@@ -256,16 +287,23 @@ const AdminCatalogPage: React.FC = () => {
       return 'This moves the product back to Draft, reloads the catalog, and removes it from storefront visibility until it is published again.';
     }
 
+    if (pendingAction.type === 'publish') {
+      return 'This restores the product to Published, reloads the catalog, and returns it to storefront visibility.';
+    }
+
     return 'This moves the product to Archived, reloads the catalog, and keeps it out of active storefront assortment.';
   }, [pendingAction]);
 
   const dialogConfirmLabel =
     pendingAction?.type === 'duplicate'
       ? 'Confirm duplicate'
+      : pendingAction?.type === 'publish'
+        ? 'Publish product'
       : pendingAction?.type === 'unpublish'
         ? 'Unpublish product'
         : 'Archive product';
-  const dialogTone = pendingAction && pendingAction.type !== 'duplicate' ? 'danger' : 'default';
+  const dialogTone =
+    pendingAction && pendingAction.type !== 'duplicate' && pendingAction.type !== 'publish' ? 'danger' : 'default';
 
   return (
     <AdminPageFrame
@@ -451,7 +489,12 @@ const AdminCatalogPage: React.FC = () => {
                 <tbody>
                   {filteredProducts.map((product) => {
                     const readiness = resolveReadiness(product);
-                    const actionLabel = product.publishState === 'Published' ? 'Unpublish' : 'Archive';
+                    const actionLabel =
+                      product.publishState === 'Published'
+                        ? 'Unpublish'
+                        : product.publishState === 'Archived'
+                          ? 'Publish'
+                          : 'Archive';
 
                     return (
                       <tr key={product.id} className="border-b border-zinc-800/80 align-top last:border-b-0">

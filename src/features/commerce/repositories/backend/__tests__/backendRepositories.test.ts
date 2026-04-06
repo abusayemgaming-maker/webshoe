@@ -217,6 +217,15 @@ describe('backend commerce repositories', () => {
     );
   });
 
+  it('returns null for missing backend admin catalog mutations instead of throwing', async () => {
+    mockedTransport.post
+      .mockRejectedValueOnce(new ApiError('Product not found', 404, null))
+      .mockRejectedValueOnce(new ApiError('Product not found', 404, null));
+
+    await expect(backendCatalogRepository.duplicateProduct?.('missing-product')).resolves.toBeNull();
+    await expect(backendCatalogRepository.setPublishState?.('missing-product', 'Draft')).resolves.toBeNull();
+  });
+
   it('lists, loads, and updates backend admin orders through backend endpoints', async () => {
     mockedTransport.get.mockResolvedValueOnce([ORDER_RECORD]).mockResolvedValueOnce(ORDER_RECORD);
     mockedTransport.post.mockResolvedValueOnce({

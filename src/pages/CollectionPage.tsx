@@ -99,7 +99,7 @@ const CollectionPage: React.FC = () => {
         subtitle="Browse the full catalog with filters and search, then jump to direct product URLs for full details."
       />
 
-      <div className="mx-auto max-w-7xl">
+      <div className="storefront-shell">
         <div className="mb-6 grid gap-4 rounded-[2rem] border border-zinc-200 bg-white px-5 py-4 md:grid-cols-[1fr,16rem]">
           <label className="block">
             <span className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">Search catalog</span>

@@ -94,6 +94,17 @@ select {
   box-shadow: var(--ds-shadow-deep);
 }
 
+.storefront-shell {
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 1600px) {
+  .storefront-shell {
+    max-width: 94rem;
+  }
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }

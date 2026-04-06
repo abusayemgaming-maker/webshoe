@@ -46,7 +46,7 @@ describe('Navbar mobile navigation', () => {
     expect(dialog).toHaveClass('invisible');
     expect(document.body.style.overflow).toBe('');
 
-    fireEvent.click(screen.getByRole('button', { name: /open navigation/i }));
+    fireEvent.click(screen.getByRole('button', { name: /open sidebar/i }));
 
     expect(screen.getByRole('dialog', { name: /velosnak atelier/i })).toBe(dialog);
     expect(dialog).toHaveAttribute('aria-hidden', 'false');

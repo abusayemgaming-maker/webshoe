@@ -3,9 +3,7 @@ const CACHE_NAME = 'velocity-vibe-v1';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
-    '/manifest.json',
-    'https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js',
-    'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'
+    '/manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
@@ -17,6 +15,12 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+    const requestUrl = new URL(event.request.url);
+
+    if (event.request.method !== 'GET' || requestUrl.origin !== self.location.origin) {
+        return;
+    }
+
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request);

@@ -11,7 +11,7 @@ interface FooterSectionProps {
 
 const FooterSection: React.FC<FooterSectionProps> = ({ returnsContent, shippingContent }) => {
   return (
-    <footer className="mx-auto mt-16 max-w-7xl border-t border-zinc-200 py-10">
+    <footer className="storefront-shell mt-16 border-t border-zinc-200 py-10">
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">Velosnak Atelier</p>
@@ -39,6 +39,12 @@ const FooterSection: React.FC<FooterSectionProps> = ({ returnsContent, shippingC
               className="rounded-full border border-zinc-900 bg-zinc-950 px-4 py-2 text-[11px] font-black uppercase tracking-[0.25em] text-white transition hover:translate-y-[-1px]"
             >
               Open studio
+            </Link>
+            <Link
+              to="/why-us-faq"
+              className="rounded-full border border-zinc-200 bg-white px-4 py-2 text-[11px] font-black uppercase tracking-[0.25em] text-zinc-600 transition hover:border-zinc-300 hover:text-zinc-950"
+            >
+              Why us + FAQ page
             </Link>
           </div>
         </div>

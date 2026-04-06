@@ -11,6 +11,7 @@ import { ToastProvider } from './features/shared/context/ToastContext';
 import PageLoadingSkeleton from './features/shared/ui/PageLoadingSkeleton';
 import ScrollToTop from './features/shared/ui/ScrollToTop';
 import AdminLayout from './features/admin/layout/AdminLayout';
+import { ADMIN_ROUTE_PATHS } from './features/admin/app/adminRoutes';
 import AdminAssetsPage from './features/admin/pages/AdminAssetsPage';
 import AdminCatalogEditorPage from './features/admin/pages/AdminCatalogEditorPage';
 import AdminCatalogPage from './features/admin/pages/AdminCatalogPage';
@@ -23,6 +24,7 @@ const CollectionPage = React.lazy(() => import('./pages/CollectionPage'));
 const ProductDetailPage = React.lazy(() => import('./pages/ProductDetailPage'));
 const WishlistPage = React.lazy(() => import('./pages/WishlistPage'));
 const CheckoutPage = React.lazy(() => import('./pages/CheckoutPage'));
+const WhyUsFaqPage = React.lazy(() => import('./pages/WhyUsFaqPage'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 
 const App: React.FC = () => (
@@ -40,6 +42,7 @@ const App: React.FC = () => (
                   <Route path="product/:productId" element={<ProductDetailPage />} />
                   <Route path="wishlist" element={<WishlistPage />} />
                   <Route path="checkout" element={<CheckoutPage />} />
+                  <Route path="why-us-faq" element={<WhyUsFaqPage />} />
                   <Route path="*" element={<NotFoundPage />} />
                 </Route>
                 <Route
@@ -60,7 +63,7 @@ const App: React.FC = () => (
                   <Route path="content" element={<AdminContentPage />} />
                   <Route path="assets" element={<AdminAssetsPage />} />
                   <Route path="settings" element={<AdminSettingsPage />} />
-                  <Route path="*" element={<Navigate to="dashboard" replace />} />
+                  <Route path="*" element={<Navigate to={ADMIN_ROUTE_PATHS.dashboard} replace />} />
                 </Route>
               </Routes>
             </React.Suspense>

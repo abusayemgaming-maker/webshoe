@@ -5,7 +5,7 @@ const PageLoadingSkeleton: React.FC = () => (
   <div className="relative overflow-hidden px-4 pb-16 pt-24 md:px-6">
     <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem] bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_35%),radial-gradient(circle_at_top_right,_rgba(59,130,246,0.12),_transparent_35%),linear-gradient(180deg,_#f7f2eb_0%,_#ffffff_65%)]" />
 
-    <section className="mx-auto max-w-7xl animate-pulse">
+    <section className="storefront-shell animate-pulse">
       <div className="mb-8 flex flex-wrap items-center gap-3">
         <div className="h-3 w-28 rounded-full bg-zinc-200" />
         <div className="h-3 w-20 rounded-full bg-zinc-100" />

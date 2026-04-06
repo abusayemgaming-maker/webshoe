@@ -17,7 +17,7 @@ const NotFoundPage: React.FC = () => {
         subtitle="The route you opened does not exist in this storefront. Use the collection links below to jump back into the catalog."
       />
 
-      <UISurfaceCard className="mx-auto max-w-7xl rounded-[2.5rem] p-8 md:p-10">
+      <UISurfaceCard className="storefront-shell rounded-[2.5rem] p-8 md:p-10">
         <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">404</p>
         <h2 className="mt-3 text-3xl font-black tracking-tight text-zinc-950">This page is outside the storefront map.</h2>
         <p className="mt-4 max-w-2xl text-sm leading-7 text-zinc-600">

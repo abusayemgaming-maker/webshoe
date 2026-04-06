@@ -8,10 +8,12 @@ import { storefrontContentRepository } from '../../commerce/repositories';
 
 interface UseStorefrontContentResult {
   content: StorefrontContentSnapshot;
+  isLoaded: boolean;
 }
 
 export const useStorefrontContent = (): UseStorefrontContentResult => {
   const [content, setContent] = React.useState<StorefrontContentSnapshot>(() => getDefaultStorefrontContentSnapshot());
+  const [isLoaded, setIsLoaded] = React.useState(false);
 
   React.useEffect(() => {
     let isActive = true;
@@ -23,7 +25,11 @@ export const useStorefrontContent = (): UseStorefrontContentResult => {
           return;
         }
         setContent(snapshot);
+        setIsLoaded(true);
       } catch (error) {
+        if (isActive) {
+          setIsLoaded(true);
+        }
         console.error('Failed to load storefront content:', error);
       }
     };
@@ -50,5 +56,6 @@ export const useStorefrontContent = (): UseStorefrontContentResult => {
 
   return {
     content,
+    isLoaded,
   };
 };

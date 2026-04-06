@@ -1,0 +1,79 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - paragraph [ref=e6]: Webshoe operations
+    - heading "Owner panel" [level=1] [ref=e7]
+    - paragraph [ref=e8]: Route-isolated workspace for catalog, order, and storefront control.
+    - generic [ref=e9]:
+      - paragraph [ref=e10]: Session
+      - paragraph [ref=e11]: Development workspace
+      - paragraph [ref=e12]: Last checked 5:44:23 AM
+    - navigation "Admin sections" [ref=e13]:
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: Core
+        - link "Dashboard Owner command center" [ref=e17] [cursor=pointer]:
+          - /url: /admin/dashboard
+          - paragraph [ref=e18]: Dashboard
+          - paragraph [ref=e19]: Owner command center
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: Commerce
+        - generic [ref=e22]:
+          - link "Catalog Product lineup and lifecycle" [ref=e23] [cursor=pointer]:
+            - /url: /admin/catalog
+            - paragraph [ref=e24]: Catalog
+            - paragraph [ref=e25]: Product lineup and lifecycle
+          - link "Catalog Editor Create and stage product entries" [ref=e26] [cursor=pointer]:
+            - /url: /admin/catalog/new
+            - paragraph [ref=e27]: Catalog Editor
+            - paragraph [ref=e28]: Create and stage product entries
+          - link "Orders Fulfillment and delivery queue" [ref=e29] [cursor=pointer]:
+            - /url: /admin/orders
+            - paragraph [ref=e30]: Orders
+            - paragraph [ref=e31]: Fulfillment and delivery queue
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Storefront
+        - generic [ref=e34]:
+          - link "Content Merchandising and storefront copy" [ref=e35] [cursor=pointer]:
+            - /url: /admin/content
+            - paragraph [ref=e36]: Content
+            - paragraph [ref=e37]: Merchandising and storefront copy
+          - link "Assets Media and 3D readiness inventory" [ref=e38] [cursor=pointer]:
+            - /url: /admin/assets
+            - paragraph [ref=e39]: Assets
+            - paragraph [ref=e40]: Media and 3D readiness inventory
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: Platform
+        - link "Settings Team policy and channel controls" [ref=e44] [cursor=pointer]:
+          - /url: /admin/settings
+          - paragraph [ref=e45]: Settings
+          - paragraph [ref=e46]: Team policy and channel controls
+  - main [active] [ref=e47]:
+    - generic [ref=e256]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - paragraph [ref=e260]: Assets
+          - heading "Media and 3D inventory" [level=2] [ref=e261]
+          - paragraph [ref=e262]: Audit image and model coverage across the catalog so storefront cards and product pages stay publish-safe without placeholder media.
+        - link "New product draft" [ref=e264] [cursor=pointer]:
+          - /url: /admin/catalog/new
+      - generic [ref=e265]:
+        - generic [ref=e266]:
+          - article [ref=e267]:
+            - paragraph [ref=e268]: Catalog coverage
+            - paragraph [ref=e269]: 8/8
+            - paragraph [ref=e270]: Products with both hero image and 3D model coverage.
+          - article [ref=e271]:
+            - paragraph [ref=e272]: Published risk
+            - paragraph [ref=e273]: "0"
+            - paragraph [ref=e274]: Live products still missing at least one required media asset.
+          - article [ref=e275]:
+            - paragraph [ref=e276]: Missing hero image
+            - paragraph [ref=e277]: "0"
+            - paragraph [ref=e278]: Products that still need a storefront-ready primary image.
+          - article [ref=e279]:
+            - paragraph [ref=e280]: Missing 3D model
+            - paragraph [ref=e281]: "0"
+            - paragraph [ref=e282]: Products that still need an immersive model URL.
+        - generic [ref=e283]:
+          - paragraph [ref=e284]: All clear
+          - heading "Every tracked product has media coverage." [level=3] [ref=e285]
+          - paragraph [ref=e286]: Catalog cards and product detail routes can rely on both hero imagery and 3D models for the current assortment.

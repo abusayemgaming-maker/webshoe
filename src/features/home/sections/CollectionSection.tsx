@@ -40,7 +40,7 @@ const CollectionSection: React.FC<CollectionSectionProps> = ({
   const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
   return (
-    <section id="collection" className="mx-auto mt-20 max-w-7xl">
+    <section id="collection" className="storefront-shell mt-20">
       <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">Collection</p>
@@ -111,7 +111,7 @@ const CollectionSection: React.FC<CollectionSectionProps> = ({
             {filteredShoes.map((shoe) => (
               <div
                 key={shoe.id}
-                className="transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:drop-shadow-[0_22px_42px_rgba(15,23,42,0.12)]"
+                className="transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_22px_42px_rgba(15,23,42,0.12)]"
               >
                 <ThreeDShoeCard shoe={shoe} onClick={onSelectShoe} />
               </div>

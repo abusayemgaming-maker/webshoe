@@ -1,13 +1,8 @@
 import * as React from 'react';
 import Toast, { type ToastTone } from '../ui/Toast';
-
-interface ToastContextValue {
-  showToast: (message: string, tone?: ToastTone) => void;
-}
+import { ToastContext } from './toastContext';
 
 const TOAST_DURATION_MS = 3000;
-
-const ToastContext = React.createContext<ToastContextValue | null>(null);
 
 interface ToastState {
   id: number;
@@ -52,14 +47,4 @@ export const ToastProvider: React.FC<React.PropsWithChildren> = ({ children }) =
       </div>
     </ToastContext.Provider>
   );
-};
-
-export const useToast = () => {
-  const context = React.useContext(ToastContext);
-
-  if (!context) {
-    throw new Error('useToast must be used within a ToastProvider');
-  }
-
-  return context;
 };

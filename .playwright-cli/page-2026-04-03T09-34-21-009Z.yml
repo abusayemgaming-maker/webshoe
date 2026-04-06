@@ -1,0 +1,12 @@
+- generic [ref=e4]:
+  - paragraph [ref=e5]: Owner panel
+  - heading "Enter the admin password." [level=1] [ref=e6]
+  - paragraph [ref=e7]: This gate is only meant to prevent casual access in client-hosted builds. Real production protection should be handled by the backend.
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - generic [ref=e10]: Password
+      - textbox "Password" [ref=e11]
+    - generic [ref=e12]:
+      - button "Unlock admin" [disabled] [ref=e13]
+      - link "Back to storefront" [ref=e14] [cursor=pointer]:
+        - /url: /

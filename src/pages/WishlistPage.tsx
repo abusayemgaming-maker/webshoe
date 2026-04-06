@@ -19,7 +19,7 @@ const WishlistPage: React.FC = () => {
         subtitle="Keep your shortlisted pairs in one place and jump straight into route-backed product detail pages."
       />
 
-      <section className="mx-auto max-w-7xl">
+      <section className="storefront-shell">
         {wishlist.length === 0 ? (
           <div className="rounded-[2.5rem] border border-dashed border-zinc-300 bg-white/75 p-10 text-center">
             <p className="text-2xl font-black tracking-tight text-zinc-950">No saved styles yet.</p>

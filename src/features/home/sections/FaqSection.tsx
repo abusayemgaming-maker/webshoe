@@ -10,7 +10,7 @@ const FaqSection: React.FC<FaqSectionProps> = ({ faqContent }) => {
   const { revealClassName, targetRef } = useScrollReveal<HTMLElement>('0px 0px -8% 0px');
 
   return (
-    <section id="faq" ref={targetRef} className={`mx-auto mt-20 max-w-7xl ${revealClassName}`}>
+    <section id="faq" ref={targetRef} className={`storefront-shell mt-20 ${revealClassName}`}>
       <div className="mb-8">
         <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">{faqContent.eyebrow}</p>
         <h2 className="mt-2 text-4xl font-black tracking-tight text-zinc-950">{faqContent.headline}</h2>

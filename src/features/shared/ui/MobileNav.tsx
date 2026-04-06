@@ -29,7 +29,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
     : 'invisible pointer-events-none opacity-0';
   const panelStateClass = isOpen
     ? 'visible pointer-events-auto translate-x-0 opacity-100'
-    : 'invisible pointer-events-none -translate-x-full opacity-0';
+    : 'invisible pointer-events-none -translate-x-8 opacity-0';
 
   useOverlayA11y({
     containerRef: panelRef,
@@ -52,7 +52,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
   return (
     <>
       <div
-        className={`fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${overlayStateClass}`}
+        className={`fixed inset-0 z-[100] bg-[rgba(15,23,42,0.35)] backdrop-blur-[2px] transition-opacity duration-300 ${overlayStateClass}`}
         aria-hidden={!isOpen}
         onClick={onClose}
       />
@@ -63,11 +63,11 @@ const MobileNav: React.FC<MobileNavProps> = ({
         aria-modal="true"
         aria-labelledby="mobile-nav-title"
         aria-hidden={!isOpen}
-        className={`fixed top-0 left-0 bottom-0 z-[101] w-[88%] max-w-sm border-r border-zinc-100 bg-[rgba(250,247,242,0.98)] shadow-2xl transition-all duration-500 ${panelStateClass}`}
+        className={`fixed top-0 left-0 bottom-0 z-[101] w-[90%] max-w-sm border-r border-zinc-200 bg-[linear-gradient(180deg,rgba(253,252,249,0.98),rgba(248,244,236,0.98))] shadow-[0_24px_80px_rgba(15,23,42,0.28)] transition-all duration-300 md:w-[24rem] md:max-w-none ${panelStateClass}`}
         tabIndex={-1}
       >
-        <div className="flex h-full flex-col p-8">
-          <div className="mb-12 flex items-center justify-between">
+        <div className="flex h-full flex-col overflow-y-auto p-6 md:p-7">
+          <div className="mb-8 flex items-center justify-between border-b border-zinc-200/80 pb-5">
             <div>
               <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">
                 Curated Footwear
@@ -79,7 +79,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
             <button
               data-overlay-close="true"
               onClick={onClose}
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-zinc-500"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-zinc-600 shadow-[0_8px_18px_rgba(15,23,42,0.08)] transition hover:border-zinc-300 hover:text-zinc-950"
               aria-label="Close navigation"
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
             ))}
           </div>
 
-          <div className="mt-8 space-y-2">
+          <div className="mt-8 space-y-2 border-t border-zinc-200/80 pt-6">
             <p className="mb-4 text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">
               Explore storefront
             </p>
@@ -129,9 +129,16 @@ const MobileNav: React.FC<MobileNavProps> = ({
             >
               FAQ
             </button>
+            <Link
+              to="/why-us-faq"
+              onClick={onClose}
+              className="block w-full rounded-2xl border border-zinc-200 bg-white px-5 py-4 text-left text-sm font-black uppercase tracking-[0.22em] text-zinc-600 transition hover:border-zinc-300 hover:bg-zinc-100 hover:text-zinc-950"
+            >
+              Why us + FAQ page
+            </Link>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-3">
+          <div className="mt-8 grid grid-cols-1 gap-3 border-t border-zinc-200/80 pt-6">
             <button
               onClick={() => {
                 onClose();
@@ -164,7 +171,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
             </Link>
           </div>
 
-          <div className="mt-auto rounded-[2rem] border border-zinc-200 bg-white p-6">
+          <div className="mt-8 rounded-[2rem] border border-zinc-200 bg-white p-6">
             <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">
               Store promise
             </p>

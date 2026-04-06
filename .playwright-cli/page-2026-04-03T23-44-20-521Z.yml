@@ -1,0 +1,236 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - paragraph [ref=e6]: Webshoe operations
+    - heading "Owner panel" [level=1] [ref=e7]
+    - paragraph [ref=e8]: Route-isolated workspace for catalog, order, and storefront control.
+    - generic [ref=e9]:
+      - paragraph [ref=e10]: Session
+      - paragraph [ref=e11]: Development workspace
+      - paragraph [ref=e12]: Last checked 5:44:19 AM
+    - navigation "Admin sections" [ref=e13]:
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: Core
+        - link "Dashboard Owner command center" [ref=e17] [cursor=pointer]:
+          - /url: /admin/dashboard
+          - paragraph [ref=e18]: Dashboard
+          - paragraph [ref=e19]: Owner command center
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: Commerce
+        - generic [ref=e22]:
+          - link "Catalog Product lineup and lifecycle" [ref=e23] [cursor=pointer]:
+            - /url: /admin/catalog
+            - paragraph [ref=e24]: Catalog
+            - paragraph [ref=e25]: Product lineup and lifecycle
+          - link "Catalog Editor Create and stage product entries" [ref=e26] [cursor=pointer]:
+            - /url: /admin/catalog/new
+            - paragraph [ref=e27]: Catalog Editor
+            - paragraph [ref=e28]: Create and stage product entries
+          - link "Orders Fulfillment and delivery queue" [ref=e29] [cursor=pointer]:
+            - /url: /admin/orders
+            - paragraph [ref=e30]: Orders
+            - paragraph [ref=e31]: Fulfillment and delivery queue
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Storefront
+        - generic [ref=e34]:
+          - link "Content Merchandising and storefront copy" [ref=e35] [cursor=pointer]:
+            - /url: /admin/content
+            - paragraph [ref=e36]: Content
+            - paragraph [ref=e37]: Merchandising and storefront copy
+          - link "Assets Media and 3D readiness inventory" [ref=e38] [cursor=pointer]:
+            - /url: /admin/assets
+            - paragraph [ref=e39]: Assets
+            - paragraph [ref=e40]: Media and 3D readiness inventory
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: Platform
+        - link "Settings Team policy and channel controls" [ref=e44] [cursor=pointer]:
+          - /url: /admin/settings
+          - paragraph [ref=e45]: Settings
+          - paragraph [ref=e46]: Team policy and channel controls
+  - main [active] [ref=e47]:
+    - generic [ref=e79]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - paragraph [ref=e83]: Catalog Editor
+          - heading "Create product draft" [level=2] [ref=e84]
+          - paragraph [ref=e85]: Use a structured owner workflow for product information, media, and publish-state preparation.
+        - generic [ref=e87]:
+          - button "Back to catalog" [ref=e88]
+          - button "Publish" [ref=e89]
+          - button "Unpublish" [disabled] [ref=e90]
+          - button "Save draft" [ref=e91]
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]: "Mode: Create"
+            - generic [ref=e96]: "Draft ID: prod-mnjjvuba-o0txnx"
+            - generic [ref=e97]: Saved state
+          - generic [ref=e98]:
+            - article [ref=e99]:
+              - paragraph [ref=e100]: Basics
+              - paragraph [ref=e101]: Not started
+            - article [ref=e102]:
+              - paragraph [ref=e103]: Pricing
+              - paragraph [ref=e104]: Not started
+            - article [ref=e105]:
+              - paragraph [ref=e106]: Inventory
+              - paragraph [ref=e107]: Ready
+            - article [ref=e108]:
+              - paragraph [ref=e109]: Sizes
+              - paragraph [ref=e110]: Not started
+            - article [ref=e111]:
+              - paragraph [ref=e112]: Materials
+              - paragraph [ref=e113]: Not started
+            - article [ref=e114]:
+              - paragraph [ref=e115]: Content
+              - paragraph [ref=e116]: Not started
+            - article [ref=e117]:
+              - paragraph [ref=e118]: Media
+              - paragraph [ref=e119]: Not started
+            - article [ref=e120]:
+              - paragraph [ref=e121]: Publishing
+              - paragraph [ref=e122]: Draft setup
+          - article [ref=e123]: New drafts start off-storefront. Save whenever you want, then publish once the required fields and media checks are complete.
+          - button "Discard changes" [disabled] [ref=e125]
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - heading "Basics" [level=3] [ref=e128]
+            - paragraph [ref=e129]: Core product identity fields used across admin and storefront surfaces.
+          - generic [ref=e130]:
+            - generic [ref=e131]:
+              - text: Product name
+              - textbox "Product name" [ref=e132]
+            - generic [ref=e133]:
+              - generic [ref=e134]:
+                - text: Brand
+                - textbox "Brand" [ref=e135]
+              - generic [ref=e136]:
+                - text: Category
+                - textbox "Category" [ref=e137]
+            - generic [ref=e138]:
+              - text: Colorway
+              - textbox "Colorway" [ref=e139]
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - heading "Pricing" [level=3] [ref=e142]
+            - paragraph [ref=e143]: Commercial pricing inputs used for shelf price and comparison views.
+          - generic [ref=e145]:
+            - generic [ref=e146]:
+              - text: Price (USD)
+              - spinbutton "Price (USD)" [ref=e147]: "0"
+            - generic [ref=e148]:
+              - text: Compare-at price
+              - spinbutton "Compare-at price" [ref=e149]: "0"
+        - generic [ref=e150]:
+          - generic [ref=e151]:
+            - heading "Inventory" [level=3] [ref=e152]
+            - paragraph [ref=e153]: Operational stock and quantity fields for order planning and product availability.
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - text: Stock status
+              - combobox "Stock status" [ref=e157]:
+                - option "In stock" [selected]
+                - option "Low stock"
+                - option "Waitlist"
+            - generic [ref=e158]:
+              - text: Quantity on hand
+              - spinbutton "Quantity on hand" [ref=e159]: "36"
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - heading "Sizes" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Comma-separated size matrix used by storefront selection controls.
+          - generic [ref=e165]:
+            - text: Available sizes
+            - textbox "Available sizes" [ref=e166]:
+              - /placeholder: US 7, US 8, US 9
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - heading "Materials" [level=3] [ref=e169]
+            - paragraph [ref=e170]: Comma-separated materials list shown in product detail storytelling.
+          - generic [ref=e172]:
+            - text: Material stack
+            - textbox "Material stack" [ref=e173]:
+              - /placeholder: Prime-knit upper, Carbon plate
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - heading "Content" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Owner-authored copy for compact previews and full product narrative.
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - text: Short blurb
+              - textbox "Short blurb" [ref=e180]
+            - generic [ref=e181]:
+              - text: Description
+              - textbox "Description" [ref=e182]
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - heading "Media" [level=3] [ref=e185]
+            - paragraph [ref=e186]: Hero and model source URLs feeding image and immersive product rendering surfaces.
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - text: Hero image URL
+              - textbox "Hero image URL" [ref=e189]
+            - generic [ref=e190]:
+              - text: 3D model URL
+              - textbox "3D model URL" [ref=e191]
+            - generic [ref=e192]:
+              - article [ref=e193]:
+                - paragraph [ref=e194]: Hero Image Preview
+                - generic [ref=e196]: Add a hero image URL to preview customer-facing visuals.
+              - article [ref=e197]:
+                - paragraph [ref=e198]: 3D Model Preview
+                - generic [ref=e200]: Add a 3D model URL to preview immersive storefront behavior.
+            - article [ref=e201]:
+              - paragraph [ref=e202]: Storefront Preview Lens
+              - paragraph [ref=e203]: Untitled product will be shown with hero media and interactive model surfaces on customer-facing product views.
+              - generic [ref=e204]:
+                - generic [ref=e205]: "Hero: missing"
+                - generic [ref=e206]: "3D: missing"
+        - generic [ref=e207]:
+          - generic [ref=e208]:
+            - heading "Publishing" [level=3] [ref=e209]
+            - paragraph [ref=e210]: Track lifecycle state, publish checklist, and storefront visibility before changing product state.
+          - generic [ref=e211]:
+            - article [ref=e212]:
+              - paragraph [ref=e213]: Current state
+              - generic [ref=e214]:
+                - generic [ref=e215]: Draft
+                - paragraph [ref=e216]: Drafts stay off the storefront until you publish them.
+              - paragraph [ref=e217]: Save draft at any point while the product is incomplete. Publish only becomes available after the required fields and media checks are ready.
+            - article [ref=e218]:
+              - paragraph [ref=e219]: Draft validation
+              - paragraph [ref=e220]: This draft has unresolved field-level validation issues.
+            - article [ref=e221]:
+              - paragraph [ref=e222]: Publish checklist
+              - paragraph [ref=e223]: "Required fields completed: 0/10"
+              - list [ref=e224]:
+                - listitem [ref=e225]: Name
+                - listitem [ref=e226]: Brand
+                - listitem [ref=e227]: Category
+                - listitem [ref=e228]: Price
+                - listitem [ref=e229]: Sizes
+                - listitem [ref=e230]: Materials
+                - listitem [ref=e231]: Short blurb
+                - listitem [ref=e232]: Description
+                - listitem [ref=e233]: Hero image
+                - listitem [ref=e234]: 3D model
+            - article [ref=e235]:
+              - paragraph [ref=e236]: Blocking checks
+              - list [ref=e237]:
+                - listitem [ref=e238]: Name is required.
+                - listitem [ref=e239]: Brand is required.
+                - listitem [ref=e240]: Category is required.
+                - listitem [ref=e241]: Price must be greater than zero.
+                - listitem [ref=e242]: At least one size is required.
+                - listitem [ref=e243]: At least one material is required.
+                - listitem [ref=e244]: Short blurb should be at least 10 characters.
+                - listitem [ref=e245]: Description should be at least 40 characters.
+                - listitem [ref=e246]: Hero image must be an absolute URL.
+                - listitem [ref=e247]: 3D model must be an absolute URL.
+            - article [ref=e248]:
+              - paragraph [ref=e249]: Non-blocking warnings
+              - paragraph [ref=e250]: No extra quality warnings right now.
+            - article [ref=e251]:
+              - paragraph [ref=e252]: Media readiness
+              - list [ref=e253]:
+                - listitem [ref=e254]: Hero image must be an absolute URL.
+                - listitem [ref=e255]: 3D model must be an absolute URL.

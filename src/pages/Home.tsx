@@ -33,7 +33,7 @@ const Home: React.FC = () => {
   const { cartCount, cartTotal } = useCart();
   const { wishlist } = useWishlist();
   const { catalogError, filteredShoes, loading, retryCatalog } = useHomeCatalog(filter, searchQuery);
-  const { content: storefrontContent } = useStorefrontContent();
+  const { content: storefrontContent, isLoaded: storefrontContentLoaded } = useStorefrontContent();
   const [featuredDrop, setFeaturedDrop] = React.useState<Shoe | null>(null);
   const [catalogSnapshot, setCatalogSnapshot] = React.useState<Shoe[]>([]);
 
@@ -73,6 +73,10 @@ const Home: React.FC = () => {
     const selectedProductId = storefrontContent.featuredDrop.productId.trim();
 
     const loadFeaturedDrop = async () => {
+      if (!storefrontContentLoaded) {
+        return;
+      }
+
       try {
         if (!selectedProductId) {
           if (!isMounted) {
@@ -100,7 +104,7 @@ const Home: React.FC = () => {
     return () => {
       isMounted = false;
     };
-  }, [catalogSnapshot, storefrontContent.featuredDrop.productId]);
+  }, [catalogSnapshot, storefrontContent.featuredDrop.productId, storefrontContentLoaded]);
 
   const lowStockCount = React.useMemo(
     () => catalogSnapshot.filter((shoe) => shoe.stockStatus !== 'In stock').length,

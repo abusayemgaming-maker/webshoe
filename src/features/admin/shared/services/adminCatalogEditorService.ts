@@ -221,6 +221,16 @@ export const adminCatalogEditorService = {
     return { archivedAt: archivedProduct.updatedAt ?? new Date().toISOString() };
   },
 
+  async publishProduct(productId: string): Promise<{ publishedAt: string } | null> {
+    await sleep(200);
+    const publishedProduct = await mutateProductPublishState(productId, 'Published');
+    if (!publishedProduct) {
+      return null;
+    }
+
+    return { publishedAt: publishedProduct.updatedAt ?? new Date().toISOString() };
+  },
+
   async unpublishProduct(productId: string): Promise<{ unpublishedAt: string } | null> {
     await sleep(200);
     const unpublishedProduct = await mutateProductPublishState(productId, 'Draft');

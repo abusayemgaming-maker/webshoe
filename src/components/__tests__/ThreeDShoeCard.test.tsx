@@ -144,14 +144,12 @@ describe('ThreeDShoeCard', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
-  it('keeps click isolation when using fallback preview', () => {
+  it('does not open details when using the fallback preview image', () => {
     const onClick = vi.fn();
     const shoeWithoutModel = { ...mockShoe, modelUrl: '' };
     renderWithProviders(<ThreeDShoeCard shoe={shoeWithoutModel} onClick={onClick} />);
 
     fireEvent.click(screen.getByRole('img', { name: /test shoe preview/i }));
     expect(onClick).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByText('Test Shoe'));
-    expect(onClick).toHaveBeenCalledWith(shoeWithoutModel);
   });
 });

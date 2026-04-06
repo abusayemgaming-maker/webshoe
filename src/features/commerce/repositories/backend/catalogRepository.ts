@@ -143,7 +143,7 @@ export const backendCatalogRepository: CatalogRepository = {
 
   async duplicateProduct(productId) {
     try {
-      return apiClient.post<BackendAdminCatalogRecordDto>(
+      return await apiClient.post<BackendAdminCatalogRecordDto>(
         `/api/admin/shoes/${encodeURIComponent(productId)}/duplicate`,
         {}
       );
@@ -158,7 +158,7 @@ export const backendCatalogRepository: CatalogRepository = {
 
   async setPublishState(productId, publishState) {
     try {
-      return apiClient.post<BackendAdminCatalogRecordDto>(
+      return await apiClient.post<BackendAdminCatalogRecordDto>(
         `/api/admin/shoes/${encodeURIComponent(productId)}/publish-state`,
         { publishState }
       );

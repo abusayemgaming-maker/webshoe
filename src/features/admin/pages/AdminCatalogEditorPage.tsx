@@ -138,9 +138,14 @@ const AdminCatalogEditorPage: React.FC = () => {
   const [baselineSnapshot, setBaselineSnapshot] = React.useState('');
   const [heroPreviewState, setHeroPreviewState] = React.useState<MediaPreviewState>('missing');
   const [modelPreviewState, setModelPreviewState] = React.useState<MediaPreviewState>('missing');
+  const heroImageRef = React.useRef<HTMLImageElement | null>(null);
   const modelViewerRef = React.useRef<ModelViewerElement | null>(null);
+  const previousHeroUrlRef = React.useRef('');
+  const previousModelUrlRef = React.useRef('');
 
   const isEditMode = Boolean(productId);
+  const normalizedHeroUrl = draft?.image.trim() ?? '';
+  const normalizedModelUrl = draft?.modelUrl.trim() ?? '';
   const validationErrors = React.useMemo(() => (draft ? validateDraft(draft) : {}), [draft]);
   const hasBlockingValidationErrors = Object.keys(validationErrors).length > 0;
   const isDirty = React.useMemo(
@@ -289,15 +294,39 @@ const AdminCatalogEditorPage: React.FC = () => {
     if (!draft) {
       setHeroPreviewState('missing');
       setModelPreviewState('missing');
+      previousHeroUrlRef.current = '';
+      previousModelUrlRef.current = '';
       return;
     }
 
-    setHeroPreviewState(draft.image.trim() ? 'loading' : 'missing');
-    setModelPreviewState(draft.modelUrl.trim() ? 'loading' : 'missing');
-  }, [draft?.image, draft?.modelUrl, draft]);
+    if (previousHeroUrlRef.current !== normalizedHeroUrl) {
+      previousHeroUrlRef.current = normalizedHeroUrl;
+      setHeroPreviewState(normalizedHeroUrl ? 'loading' : 'missing');
+    }
+
+    if (previousModelUrlRef.current !== normalizedModelUrl) {
+      previousModelUrlRef.current = normalizedModelUrl;
+      setModelPreviewState(normalizedModelUrl ? 'loading' : 'missing');
+    }
+  }, [draft, normalizedHeroUrl, normalizedModelUrl]);
 
   React.useEffect(() => {
-    if (!draft?.modelUrl.trim()) {
+    if (!normalizedHeroUrl) {
+      return;
+    }
+
+    const heroImage = heroImageRef.current;
+    if (!heroImage) {
+      return;
+    }
+
+    if (heroImage.complete && heroImage.naturalWidth > 0) {
+      setHeroPreviewState('ready');
+    }
+  }, [normalizedHeroUrl]);
+
+  React.useEffect(() => {
+    if (!normalizedModelUrl) {
       return;
     }
 
@@ -321,7 +350,7 @@ const AdminCatalogEditorPage: React.FC = () => {
       modelViewer.removeEventListener('load', handleModelLoad as EventListener);
       modelViewer.removeEventListener('error', handleModelError as EventListener);
     };
-  }, [draft?.modelUrl]);
+  }, [normalizedModelUrl]);
 
   React.useEffect(() => {
     const navigationState = location.state as CatalogEditorNavigationState;
@@ -526,46 +555,64 @@ const AdminCatalogEditorPage: React.FC = () => {
     },
   ];
 
+  const hasLoadedDraft = !isLoading && !loadError && Boolean(draft);
+  const hasUnavailableDraft = !isLoading && !draft;
+  const frameTitle = hasLoadedDraft
+    ? isEditMode
+      ? `Edit product ${productId}`
+      : 'Create product draft'
+    : hasUnavailableDraft
+      ? 'Product unavailable'
+      : isEditMode
+        ? 'Loading product draft'
+        : 'Create product draft';
+  const frameSummary = hasLoadedDraft
+    ? 'Use a structured owner workflow for product information, media, and publish-state preparation.'
+    : hasUnavailableDraft
+      ? 'This product record is unavailable for editing. Return to the catalog list and choose a valid draft.'
+      : 'Preparing the product editor workspace.';
+  const frameActions = hasLoadedDraft ? (
+    <div className="flex flex-wrap gap-2">
+      <button
+        type="button"
+        onClick={handleLeaveEditor}
+        className="rounded-full border border-zinc-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-200 transition hover:border-zinc-400"
+      >
+        Back to catalog
+      </button>
+      <button
+        type="button"
+        onClick={() => void handlePublish()}
+        disabled={isSaving || !draft || draft.publishState === 'Published'}
+        className="rounded-full border border-sky-500/60 bg-sky-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200 transition hover:border-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        Publish
+      </button>
+      <button
+        type="button"
+        onClick={() => void handleUnpublish()}
+        disabled={isSaving || !draft || draft.publishState !== 'Published'}
+        className="rounded-full border border-zinc-600 bg-zinc-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-200 transition hover:border-zinc-400 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        Unpublish
+      </button>
+      <button
+        type="button"
+        onClick={() => void handleSaveDraft()}
+        disabled={isSaving}
+        className="rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200 transition hover:border-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {isSaving ? 'Saving...' : saveActionLabel}
+      </button>
+    </div>
+  ) : null;
+
   return (
     <AdminPageFrame
       eyebrow="Catalog Editor"
-      title={isEditMode ? `Edit product ${productId}` : 'Create product draft'}
-      summary="Use a structured owner workflow for product information, media, and publish-state preparation."
-      actions={
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={handleLeaveEditor}
-            className="rounded-full border border-zinc-600 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-200 transition hover:border-zinc-400"
-          >
-            Back to catalog
-          </button>
-          <button
-            type="button"
-            onClick={() => void handlePublish()}
-            disabled={isSaving || !draft || draft.publishState === 'Published'}
-            className="rounded-full border border-sky-500/60 bg-sky-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-sky-200 transition hover:border-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            Publish
-          </button>
-          <button
-            type="button"
-            onClick={() => void handleUnpublish()}
-            disabled={isSaving || !draft || draft.publishState !== 'Published'}
-            className="rounded-full border border-zinc-600 bg-zinc-900/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-200 transition hover:border-zinc-400 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            Unpublish
-          </button>
-          <button
-            type="button"
-            onClick={() => void handleSaveDraft()}
-            disabled={isSaving}
-            className="rounded-full border border-emerald-500/60 bg-emerald-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200 transition hover:border-emerald-400 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {isSaving ? 'Saving...' : saveActionLabel}
-          </button>
-        </div>
-      }
+      title={frameTitle}
+      summary={frameSummary}
+      actions={frameActions}
     >
       {isLoading ? (
         <AdminLoadingState label="Loading editor workspace..." />
@@ -908,8 +955,9 @@ const AdminCatalogEditorPage: React.FC = () => {
                   ) : (
                     <>
                       <img
-                        key={draft.image}
-                        src={draft.image}
+                        key={normalizedHeroUrl}
+                        ref={heroImageRef}
+                        src={normalizedHeroUrl}
                         alt={draft.name ? `${draft.name} hero preview` : 'Hero preview'}
                         className="h-full w-full object-cover"
                         onLoad={() => setHeroPreviewState('ready')}
@@ -941,11 +989,11 @@ const AdminCatalogEditorPage: React.FC = () => {
                     <>
                       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.18),transparent_45%),radial-gradient(circle_at_70%_75%,rgba(14,165,233,0.14),transparent_50%)]" />
                       <model-viewer
-                        key={draft.modelUrl}
+                        key={normalizedModelUrl}
                         ref={(node: HTMLElement | null) => {
                           modelViewerRef.current = node as ModelViewerElement | null;
                         }}
-                        src={draft.modelUrl}
+                        src={normalizedModelUrl}
                         poster={draft.image || undefined}
                         camera-controls
                         auto-rotate

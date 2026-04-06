@@ -1,0 +1,169 @@
+- generic [ref=e3]:
+  - link "Skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=e5]:
+    - generic [ref=e6]:
+      - navigation [ref=e7]:
+        - generic [ref=e8]:
+          - button "Go to home" [ref=e10]:
+            - generic [ref=e11]: VS
+            - generic [ref=e12]:
+              - paragraph [ref=e13]: Curated Footwear
+              - paragraph [ref=e14]: Velosnak Atelier
+          - generic [ref=e15]:
+            - button "New Arrivals" [ref=e16]
+            - button "Collection" [ref=e17]
+            - button "Why Shop Us" [ref=e18]
+            - button "FAQ" [ref=e19]
+          - generic [ref=e20]:
+            - generic:
+              - generic:
+                - textbox "Search by name, brand, or color"
+            - button "Open search" [ref=e21]:
+              - img [ref=e22]
+            - button "0 Account Saved styles" [ref=e24]:
+              - generic [ref=e25]: "0"
+              - generic [ref=e26]:
+                - paragraph [ref=e27]: Account
+                - paragraph [ref=e28]: Saved styles
+            - button "0 Bag Checkout" [ref=e29]:
+              - generic [ref=e30]: "0"
+              - generic [ref=e31]:
+                - paragraph [ref=e32]: Bag
+                - paragraph [ref=e33]: Checkout
+      - generic [ref=e34]:
+        - generic [ref=e35]: Free shipping over $300 · 14-day size exchange · new arrivals weekly
+        - generic [ref=e36]:
+          - generic [ref=e37]:
+            - paragraph [ref=e38]: Curated sneaker boutique
+            - heading "Modern sneakers with premium finish and easy everyday wear." [level=1] [ref=e39]
+            - paragraph [ref=e40]: Explore a tighter edit of standout pairs, from clean runners to bold statement styles. Every product page includes clear sizing, delivery timing, and saved-item support.
+            - generic [ref=e41]:
+              - button "Shop collection" [ref=e42]
+              - button "Why shop here" [ref=e43]
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - paragraph [ref=e46]: Styles
+                - paragraph [ref=e47]: "0"
+              - generic [ref=e48]:
+                - paragraph [ref=e49]: In bag
+                - paragraph [ref=e50]: "0"
+              - generic [ref=e51]:
+                - paragraph [ref=e52]: Saved
+                - paragraph [ref=e53]: "0"
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - paragraph [ref=e56]: Featured drop
+              - heading "Next featured drop" [level=2] [ref=e57]
+              - paragraph [ref=e58]: A new premium pair is arriving soon. Stay tuned for the next release.
+              - generic [ref=e59]:
+                - generic [ref=e60]:
+                  - generic [ref=e61]:
+                    - paragraph [ref=e62]: Velosnak Atelier
+                    - paragraph [ref=e63]: "--"
+                  - generic [ref=e64]: Waitlist
+                - button "View product" [disabled] [ref=e65]
+            - generic [ref=e66]:
+              - paragraph [ref=e67]: Store details
+              - generic [ref=e68]:
+                - generic [ref=e69]:
+                  - paragraph [ref=e70]: $0
+                  - paragraph [ref=e71]: Current bag total
+                - generic [ref=e72]:
+                  - paragraph [ref=e73]: "0"
+                  - paragraph [ref=e74]: Limited-stock styles
+                - generic [ref=e75]:
+                  - paragraph [ref=e76]: 14d
+                  - paragraph [ref=e77]: Size exchange window
+      - generic [ref=e78]:
+        - generic [ref=e79]:
+          - paragraph [ref=e80]: Why shop here
+          - heading "Designed to feel clear, calm, and premium from the first click." [level=2] [ref=e81]
+        - generic [ref=e82]:
+          - generic [ref=e83]:
+            - paragraph [ref=e84]: Selection
+            - heading "Curated Selection" [level=3] [ref=e85]
+            - paragraph [ref=e86]: A focused edit of modern runners, low tops, and statement pairs chosen for style, comfort, and everyday wear.
+          - generic [ref=e87]:
+            - paragraph [ref=e88]: Delivery
+            - heading "Clear Delivery" [level=3] [ref=e89]
+            - paragraph [ref=e90]: Shipping timelines are easy to understand, with express options available at checkout for the pairs that need to arrive fast.
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: Support
+            - heading "Easy Support" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Size guidance, saved items, and simple post-purchase support make the store feel calm, helpful, and easy to trust.
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - paragraph [ref=e98]: Collection
+            - heading "Shop the collection" [level=2] [ref=e99]
+          - paragraph [ref=e100]: Loading styles...
+        - generic [ref=e101]:
+          - button "New Arrivals" [ref=e102]
+          - button "All" [ref=e103]
+      - generic [ref=e155]:
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: How it works
+          - heading "A simple path from product page to checkout." [level=2] [ref=e158]
+          - paragraph [ref=e159]: Browse the collection, choose your size, and check out with delivery details in one place. The flow is made to feel simple from start to finish.
+        - generic [ref=e160]:
+          - generic [ref=e161]:
+            - paragraph [ref=e162]: Step 1
+            - heading "Find your pair" [level=3] [ref=e163]
+            - paragraph [ref=e164]: Browse by brand or new arrivals, then open the product page to see the fit, finish, and delivery details.
+          - generic [ref=e165]:
+            - paragraph [ref=e166]: Step 2
+            - heading "Pick your size" [level=3] [ref=e167]
+            - paragraph [ref=e168]: Choose the right size, add it to your bag, and update quantities without losing your place in the collection.
+          - generic [ref=e169]:
+            - paragraph [ref=e170]: Step 3
+            - heading "Check out" [level=3] [ref=e171]
+            - paragraph [ref=e172]: Review your bag, choose standard or express delivery, and confirm the order details in one clear flow.
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - paragraph [ref=e175]: FAQ
+          - heading "Questions we hear most." [level=2] [ref=e176]
+        - generic [ref=e177]:
+          - generic [ref=e178]:
+            - heading "How long does shipping take?" [level=3] [ref=e179]
+            - paragraph [ref=e180]: Standard delivery usually arrives in 2 to 4 business days. Express delivery is available at checkout for faster dispatch.
+          - generic [ref=e181]:
+            - heading "Can I exchange for another size?" [level=3] [ref=e182]
+            - paragraph [ref=e183]: Yes. Eligible pairs include a 14-day size exchange so you can shop with more confidence.
+          - generic [ref=e184]:
+            - heading "Can I save styles for later?" [level=3] [ref=e185]
+            - paragraph [ref=e186]: Yes. Tap the heart on any product card to save it and review it later in your account area.
+          - generic [ref=e187]:
+            - heading "What comes with each order?" [level=3] [ref=e188]
+            - paragraph [ref=e189]: Every order includes secure packaging, order tracking, and simple support if you need help after delivery.
+      - generic [ref=e191]:
+        - generic [ref=e192]:
+          - generic [ref=e193]:
+            - paragraph [ref=e194]: Ready to choose your pair?
+            - heading "Clean silhouettes, fast delivery, and easy size support across the full collection." [level=2] [ref=e195]
+          - button "Open bag" [ref=e196]
+        - generic [ref=e197]:
+          - generic [ref=e198]: New arrivals
+          - generic [ref=e199]: Best sellers
+          - generic [ref=e200]: Shipping
+          - generic [ref=e201]: Returns
+          - generic [ref=e202]: Contact
+      - generic [ref=e203]:
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - paragraph [ref=e206]: Velosnak Atelier
+            - paragraph [ref=e207]: Curated sneakers for daily wear and standout moments.
+          - generic [ref=e208]:
+            - paragraph [ref=e209]: Clean product pages, clear delivery, and a simpler shopping flow.
+            - generic [ref=e210]:
+              - button "Collection" [ref=e211]
+              - button "FAQ" [ref=e212]
+              - link "Open studio" [ref=e213] [cursor=pointer]:
+                - /url: /admin/dashboard
+        - generic [ref=e214]:
+          - article [ref=e215]:
+            - paragraph [ref=e216]: Shipping
+            - paragraph [ref=e217]: Standard delivery arrives in 2-4 business days, with express dispatch available at checkout.
+          - article [ref=e218]:
+            - paragraph [ref=e219]: Returns
+            - paragraph [ref=e220]: Need a different size? Eligible pairs include a 14-day size exchange window.

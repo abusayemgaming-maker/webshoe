@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "stripText": "Free shipping over $300 · 14-day size exchange · new arrivals weekly",
+    "eyebrow": "Curated sneaker boutique",
+    "headline": "Modern sneakers with premium finish and easy everyday wear.",
+    "description": "Explore a tighter edit of standout pairs, from clean runners to bold statement styles. Every product page includes clear sizing, delivery timing, and saved-item support.",
+    "primaryCtaLabel": "Shop collection",
+    "secondaryCtaLabel": "Why shop here"
+  },
+  "featuredDrop": {
+    "productId": "6",
+    "fallbackName": "Next featured drop",
+    "fallbackBody": "A new premium pair is arriving soon. Stay tuned for the next release.",
+    "actionLabel": "View product"
+  },
+  "trust": {
+    "eyebrow": "Why shop here",
+    "headline": "Designed to feel clear, calm, and premium from the first click.",
+    "items": [
+      {
+        "title": "Curated Selection",
+        "body": "A focused edit of modern runners, low tops, and statement pairs chosen for style, comfort, and everyday wear.",
+        "eyebrow": "Selection"
+      },
+      {
+        "title": "Clear Delivery",
+        "body": "Shipping timelines are easy to understand, with express options available at checkout for the pairs that need to arrive fast.",
+        "eyebrow": "Delivery"
+      },
+      {
+        "title": "Easy Support",
+        "body": "Size guidance, saved items, and simple post-purchase support make the store feel calm, helpful, and easy to trust.",
+        "eyebrow": "Support"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "headline": "Questions we hear most.",
+    "items": [
+      {
+        "question": "How long does shipping take?",
+        "answer": "Standard delivery usually arrives in 2 to 4 business days. Express delivery is available at checkout for faster dispatch."
+      },
+      {
+        "question": "Can I exchange for another size?",
+        "answer": "Yes. Eligible pairs include a 14-day size exchange so you can shop with more confidence."
+      },
+      {
+        "question": "Can I save styles for later?",
+        "answer": "Yes. Tap the heart on any product card to save it and review it later in your account area."
+      },
+      {
+        "question": "What comes with each order?",
+        "answer": "Every order includes secure packaging, order tracking, and simple support if you need help after delivery."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Ready to choose your pair?",
+    "headline": "Clean silhouettes, fast delivery, and easy size support across the full collection.",
+    "buttonLabel": "Open bag",
+    "chips": [
+      "New arrivals",
+      "Best sellers",
+      "Shipping",
+      "Returns",
+      "Contact"
+    ]
+  },
+  "shipping": {
+    "title": "Shipping",
+    "message": "Standard delivery arrives in 2-4 business days, with express dispatch available at checkout."
+  },
+  "returns": {
+    "title": "Returns",
+    "message": "Need a different size? Eligible pairs include a 14-day size exchange window."
+  },
+  "updatedAt": null
+}

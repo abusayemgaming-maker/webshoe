@@ -1,0 +1,345 @@
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - paragraph [ref=e6]: Webshoe operations
+    - heading "Owner panel" [level=1] [ref=e7]
+    - paragraph [ref=e8]: Route-isolated workspace for catalog, order, and storefront control.
+    - generic [ref=e9]:
+      - paragraph [ref=e10]: Session
+      - paragraph [ref=e11]: Development workspace
+      - paragraph [ref=e12]: Last checked 5:44:31 AM
+    - navigation "Admin sections" [ref=e13]:
+      - generic [ref=e14]:
+        - paragraph [ref=e15]: Core
+        - link "Dashboard Owner command center" [ref=e17] [cursor=pointer]:
+          - /url: /admin/dashboard
+          - paragraph [ref=e18]: Dashboard
+          - paragraph [ref=e19]: Owner command center
+      - generic [ref=e20]:
+        - paragraph [ref=e21]: Commerce
+        - generic [ref=e22]:
+          - link "Catalog Product lineup and lifecycle" [ref=e23] [cursor=pointer]:
+            - /url: /admin/catalog
+            - paragraph [ref=e24]: Catalog
+            - paragraph [ref=e25]: Product lineup and lifecycle
+          - link "Catalog Editor Create and stage product entries" [ref=e26] [cursor=pointer]:
+            - /url: /admin/catalog/new
+            - paragraph [ref=e27]: Catalog Editor
+            - paragraph [ref=e28]: Create and stage product entries
+          - link "Orders Fulfillment and delivery queue" [ref=e29] [cursor=pointer]:
+            - /url: /admin/orders
+            - paragraph [ref=e30]: Orders
+            - paragraph [ref=e31]: Fulfillment and delivery queue
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Storefront
+        - generic [ref=e34]:
+          - link "Content Merchandising and storefront copy" [ref=e35] [cursor=pointer]:
+            - /url: /admin/content
+            - paragraph [ref=e36]: Content
+            - paragraph [ref=e37]: Merchandising and storefront copy
+          - link "Assets Media and 3D readiness inventory" [ref=e38] [cursor=pointer]:
+            - /url: /admin/assets
+            - paragraph [ref=e39]: Assets
+            - paragraph [ref=e40]: Media and 3D readiness inventory
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: Platform
+        - link "Settings Team policy and channel controls" [ref=e44] [cursor=pointer]:
+          - /url: /admin/settings
+          - paragraph [ref=e45]: Settings
+          - paragraph [ref=e46]: Team policy and channel controls
+  - main [active] [ref=e47]:
+    - generic [ref=e100]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - paragraph [ref=e104]: Content
+          - heading "Storefront messaging" [level=2] [ref=e105]
+          - paragraph [ref=e106]: Control hero language, feature storytelling, trust content, and route-level communication surfaces.
+        - generic [ref=e108]:
+          - button "Discard changes" [disabled] [ref=e109]
+          - button "Save content" [ref=e110]
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: Saved state
+            - generic [ref=e115]: "Blocking issues: 0"
+            - generic [ref=e116]: "Warnings: 1"
+            - generic [ref=e117]: "Last saved: Never"
+          - generic [ref=e118]:
+            - article [ref=e119]:
+              - paragraph [ref=e120]: Blocking
+              - paragraph [ref=e121]: No blocking issues.
+            - article [ref=e122]:
+              - paragraph [ref=e123]: Warnings
+              - list [ref=e124]:
+                - listitem [ref=e125]: Featured product "Titanium Trek High" is currently Draft.
+        - generic [ref=e126]:
+          - article [ref=e127]:
+            - paragraph [ref=e128]: Hero Messaging
+            - paragraph [ref=e129]: Top-strip announcement, hero copy, and primary storefront call-to-action labels.
+            - paragraph [ref=e130]: "Updated: Not yet saved"
+          - article [ref=e131]:
+            - paragraph [ref=e132]: Featured Drop
+            - paragraph [ref=e133]: Home hero product spotlight, tied directly to a real catalog product.
+            - paragraph [ref=e134]: "Updated: Not yet saved"
+          - article [ref=e135]:
+            - paragraph [ref=e136]: Trust Content
+            - paragraph [ref=e137]: Why-shop-here framing and the three promise cards shown on the home page.
+            - paragraph [ref=e138]: "Updated: Not yet saved"
+          - article [ref=e139]:
+            - paragraph [ref=e140]: FAQ
+            - paragraph [ref=e141]: Common storefront questions and answers shown in the FAQ section.
+            - paragraph [ref=e142]: "Updated: Not yet saved"
+          - article [ref=e143]:
+            - paragraph [ref=e144]: Primary CTA
+            - paragraph [ref=e145]: Bottom call-to-action panel including headline, button label, and quick chips.
+            - paragraph [ref=e146]: "Updated: Not yet saved"
+          - article [ref=e147]:
+            - paragraph [ref=e148]: Shipping Messaging
+            - paragraph [ref=e149]: Storefront shipping title and supporting copy shown in the footer region.
+            - paragraph [ref=e150]: "Updated: Not yet saved"
+          - article [ref=e151]:
+            - paragraph [ref=e152]: Returns Messaging
+            - paragraph [ref=e153]: Storefront returns title and supporting copy shown in the footer region.
+            - paragraph [ref=e154]: "Updated: Not yet saved"
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - heading "Hero Messaging" [level=3] [ref=e157]
+            - paragraph [ref=e158]: "Scope: top-strip message plus hero copy and button labels. This controls only the storefront hero region."
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - generic [ref=e161]:
+                - text: Strip text
+                - textbox "Strip text" [ref=e162]: Free shipping over $300 · 14-day size exchange · new arrivals weekly
+              - generic [ref=e163]:
+                - text: Eyebrow
+                - textbox "Eyebrow" [ref=e164]: Curated sneaker boutique
+            - generic [ref=e165]:
+              - text: Headline
+              - textbox "Headline" [ref=e166]: Modern sneakers with premium finish and easy everyday wear.
+            - generic [ref=e167]:
+              - text: Description
+              - textbox "Description" [ref=e168]: Explore a tighter edit of standout pairs, from clean runners to bold statement styles. Every product page includes clear sizing, delivery timing, and saved-item support.
+            - generic [ref=e169]:
+              - generic [ref=e170]:
+                - text: Primary CTA label
+                - textbox "Primary CTA label" [ref=e171]: Shop collection
+              - generic [ref=e172]:
+                - text: Secondary CTA label
+                - textbox "Secondary CTA label" [ref=e173]: Why shop here
+            - article [ref=e174]:
+              - paragraph [ref=e175]: Hero preview
+              - paragraph [ref=e176]: Free shipping over $300 · 14-day size exchange · new arrivals weekly
+              - paragraph [ref=e177]: Curated sneaker boutique
+              - heading "Modern sneakers with premium finish and easy everyday wear." [level=4] [ref=e178]
+              - paragraph [ref=e179]: Explore a tighter edit of standout pairs, from clean runners to bold statement styles. Every product page includes clear sizing, delivery timing, and saved-item support.
+              - generic [ref=e180]:
+                - generic [ref=e181]: Shop collection
+                - generic [ref=e182]: Why shop here
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - heading "Featured Drop" [level=3] [ref=e185]
+            - paragraph [ref=e186]: "Scope: one catalog-linked product spotlight shown in the home hero. Product selection is restricted to real catalog entries."
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - text: Featured product
+              - combobox "Featured product" [ref=e189]:
+                - option "Select product"
+                - option "Cyber-Dunk Catalyst · Hyper-Street (#3)"
+                - option "Lunar Glide S1 · Hyper-Street (#8)"
+                - option "Phantom Velocity X · VeloSnak Elite (#1)"
+                - option "Zenith Void Runner · Aether Lab (#4)"
+                - option "Aero-Core Prototype · VeloSnak Elite (#2)"
+                - option "Neon Pulse Flare · Aether Lab (#7)"
+                - option "Titanium Trek High · VeloSnak Elite (#6)" [selected]
+                - option "Prism Flux Low · Hyper-Street (#5)"
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - text: Fallback name
+                - textbox "Fallback name" [ref=e192]: Next featured drop
+              - generic [ref=e193]:
+                - text: Action label
+                - textbox "Action label" [ref=e194]: View product
+            - generic [ref=e195]:
+              - text: Fallback body
+              - textbox "Fallback body" [ref=e196]: A new premium pair is arriving soon. Stay tuned for the next release.
+            - article [ref=e197]:
+              - paragraph [ref=e198]: Featured drop preview
+              - generic [ref=e199]:
+                - heading "Titanium Trek High" [level=4] [ref=e200]
+                - paragraph [ref=e201]: VeloSnak Elite
+                - generic [ref=e202]:
+                  - generic [ref=e203]: Draft
+                  - generic [ref=e204]: Low stock
+                - paragraph [ref=e205]: Storefront hero will use fallback name and body until this product is published.
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - heading "Trust Content" [level=3] [ref=e208]
+            - paragraph [ref=e209]: "Scope: trust section headline plus exactly 3 promise cards to keep storefront structure intentional and stable."
+          - generic [ref=e210]:
+            - generic [ref=e211]:
+              - generic [ref=e212]:
+                - text: Section eyebrow
+                - textbox "Section eyebrow" [ref=e213]: Why shop here
+              - generic [ref=e214]:
+                - text: Section headline
+                - textbox "Section headline" [ref=e215]: Designed to feel clear, calm, and premium from the first click.
+            - generic [ref=e216]:
+              - article [ref=e217]:
+                - paragraph [ref=e218]: Card 1
+                - generic [ref=e219]:
+                  - generic [ref=e220]:
+                    - text: Eyebrow
+                    - textbox "Eyebrow" [ref=e221]: Selection
+                  - generic [ref=e222]:
+                    - text: Title
+                    - textbox "Title" [ref=e223]: Curated Selection
+                  - generic [ref=e224]:
+                    - text: Body
+                    - textbox "Body" [ref=e225]: A focused edit of modern runners, low tops, and statement pairs chosen for style, comfort, and everyday wear.
+              - article [ref=e226]:
+                - paragraph [ref=e227]: Card 2
+                - generic [ref=e228]:
+                  - generic [ref=e229]:
+                    - text: Eyebrow
+                    - textbox "Eyebrow" [ref=e230]: Delivery
+                  - generic [ref=e231]:
+                    - text: Title
+                    - textbox "Title" [ref=e232]: Clear Delivery
+                  - generic [ref=e233]:
+                    - text: Body
+                    - textbox "Body" [ref=e234]: Shipping timelines are easy to understand, with express options available at checkout for the pairs that need to arrive fast.
+              - article [ref=e235]:
+                - paragraph [ref=e236]: Card 3
+                - generic [ref=e237]:
+                  - generic [ref=e238]:
+                    - text: Eyebrow
+                    - textbox "Eyebrow" [ref=e239]: Support
+                  - generic [ref=e240]:
+                    - text: Title
+                    - textbox "Title" [ref=e241]: Easy Support
+                  - generic [ref=e242]:
+                    - text: Body
+                    - textbox "Body" [ref=e243]: Size guidance, saved items, and simple post-purchase support make the store feel calm, helpful, and easy to trust.
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - heading "FAQ" [level=3] [ref=e246]
+            - paragraph [ref=e247]: "Scope: fixed 4-item FAQ block for homepage readability and predictable layout behavior."
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e250]:
+                - text: Section eyebrow
+                - textbox "Section eyebrow" [ref=e251]: FAQ
+              - generic [ref=e252]:
+                - text: Section headline
+                - textbox "Section headline" [ref=e253]: Questions we hear most.
+            - generic [ref=e254]:
+              - article [ref=e255]:
+                - paragraph [ref=e256]: FAQ item 1
+                - generic [ref=e257]:
+                  - generic [ref=e258]:
+                    - text: Question
+                    - textbox "Question" [ref=e259]: How long does shipping take?
+                  - generic [ref=e260]:
+                    - text: Answer
+                    - textbox "Answer" [ref=e261]: Standard delivery usually arrives in 2 to 4 business days. Express delivery is available at checkout for faster dispatch.
+              - article [ref=e262]:
+                - paragraph [ref=e263]: FAQ item 2
+                - generic [ref=e264]:
+                  - generic [ref=e265]:
+                    - text: Question
+                    - textbox "Question" [ref=e266]: Can I exchange for another size?
+                  - generic [ref=e267]:
+                    - text: Answer
+                    - textbox "Answer" [ref=e268]: Yes. Eligible pairs include a 14-day size exchange so you can shop with more confidence.
+              - article [ref=e269]:
+                - paragraph [ref=e270]: FAQ item 3
+                - generic [ref=e271]:
+                  - generic [ref=e272]:
+                    - text: Question
+                    - textbox "Question" [ref=e273]: Can I save styles for later?
+                  - generic [ref=e274]:
+                    - text: Answer
+                    - textbox "Answer" [ref=e275]: Yes. Tap the heart on any product card to save it and review it later in your account area.
+              - article [ref=e276]:
+                - paragraph [ref=e277]: FAQ item 4
+                - generic [ref=e278]:
+                  - generic [ref=e279]:
+                    - text: Question
+                    - textbox "Question" [ref=e280]: What comes with each order?
+                  - generic [ref=e281]:
+                    - text: Answer
+                    - textbox "Answer" [ref=e282]: Every order includes secure packaging, order tracking, and simple support if you need help after delivery.
+        - generic [ref=e283]:
+          - generic [ref=e284]:
+            - heading "Primary CTA" [level=3] [ref=e285]
+            - paragraph [ref=e286]: "Scope: final conversion block near footer, including headline, action label, and exactly 5 quick chips."
+          - generic [ref=e287]:
+            - generic [ref=e288]:
+              - generic [ref=e289]:
+                - text: Eyebrow
+                - textbox "Eyebrow" [ref=e290]: Ready to choose your pair?
+              - generic [ref=e291]:
+                - text: Headline
+                - textbox "Headline" [ref=e292]: Clean silhouettes, fast delivery, and easy size support across the full collection.
+            - generic [ref=e293]:
+              - text: Button label
+              - textbox "Button label" [ref=e294]: Open bag
+            - generic [ref=e295]:
+              - generic [ref=e296]:
+                - text: Chip 1
+                - textbox "Chip 1" [ref=e297]: New arrivals
+              - generic [ref=e298]:
+                - text: Chip 2
+                - textbox "Chip 2" [ref=e299]: Best sellers
+              - generic [ref=e300]:
+                - text: Chip 3
+                - textbox "Chip 3" [ref=e301]: Shipping
+              - generic [ref=e302]:
+                - text: Chip 4
+                - textbox "Chip 4" [ref=e303]: Returns
+              - generic [ref=e304]:
+                - text: Chip 5
+                - textbox "Chip 5" [ref=e305]: Contact
+            - article [ref=e306]:
+              - paragraph [ref=e307]: CTA preview
+              - paragraph [ref=e308]: Ready to choose your pair?
+              - heading "Clean silhouettes, fast delivery, and easy size support across the full collection." [level=4] [ref=e309]
+              - generic [ref=e310]: Open bag
+              - generic [ref=e311]:
+                - generic [ref=e312]: New arrivals
+                - generic [ref=e313]: Best sellers
+                - generic [ref=e314]: Shipping
+                - generic [ref=e315]: Returns
+                - generic [ref=e316]: Contact
+        - generic [ref=e317]:
+          - generic [ref=e318]:
+            - heading "Shipping and Returns Messaging" [level=3] [ref=e319]
+            - paragraph [ref=e320]: "Scope: footer communication cards for delivery and size-support expectations."
+          - generic [ref=e321]:
+            - generic [ref=e322]:
+              - article [ref=e323]:
+                - paragraph [ref=e324]: Shipping
+                - generic [ref=e325]:
+                  - generic [ref=e326]:
+                    - text: Title
+                    - textbox "Title" [ref=e327]: Shipping
+                  - generic [ref=e328]:
+                    - text: Message
+                    - textbox "Message" [ref=e329]: Standard delivery arrives in 2-4 business days, with express dispatch available at checkout.
+              - article [ref=e330]:
+                - paragraph [ref=e331]: Returns
+                - generic [ref=e332]:
+                  - generic [ref=e333]:
+                    - text: Title
+                    - textbox "Title" [ref=e334]: Returns
+                  - generic [ref=e335]:
+                    - text: Message
+                    - textbox "Message" [ref=e336]: Need a different size? Eligible pairs include a 14-day size exchange window.
+            - article [ref=e337]:
+              - paragraph [ref=e338]: Footer messaging preview
+              - generic [ref=e339]:
+                - generic [ref=e340]:
+                  - paragraph [ref=e341]: Shipping
+                  - paragraph [ref=e342]: Standard delivery arrives in 2-4 business days, with express dispatch available at checkout.
+                - generic [ref=e343]:
+                  - paragraph [ref=e344]: Returns
+                  - paragraph [ref=e345]: Need a different size? Eligible pairs include a 14-day size exchange window.

@@ -54,15 +54,16 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/60 bg-[rgba(250,247,242,0.88)] backdrop-blur-xl shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
+        <div className="storefront-shell flex items-center justify-between px-4 py-4 md:px-6 lg:px-7 lg:py-5">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setIsMobileMenuOpen(true)}
-              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-zinc-900 transition hover:border-zinc-300 md:hidden"
-              aria-label="Open navigation"
+              className="group flex h-11 w-11 items-center justify-center rounded-2xl border border-zinc-200 bg-white text-zinc-800 shadow-[0_8px_22px_rgba(15,23,42,0.08)] transition hover:-translate-y-[1px] hover:border-zinc-300 hover:text-zinc-950 md:h-12 md:w-12"
+              aria-label="Open sidebar"
+              title="Open sidebar"
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16m-7 6h7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.3" d="M4 6h16M4 12h16M4 18h10" />
               </svg>
             </button>
 
@@ -71,25 +72,25 @@ const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center gap-3 transition hover:opacity-80"
               aria-label="Go to home"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-xs font-black tracking-[0.35em] text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-xs font-black tracking-[0.35em] text-white md:h-12 md:w-12">
                 VS
               </div>
               <div className="text-left">
-                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">
+                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500 md:text-[11px]">
                   Curated Footwear
                 </p>
-                <p className="text-xl font-black tracking-tight text-zinc-950">Velosnak Atelier</p>
+                <p className="text-xl font-black tracking-tight text-zinc-950 md:text-[1.7rem]">Velosnak Atelier</p>
               </div>
             </button>
           </div>
 
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-8 lg:gap-10 md:flex">
             <button
               onClick={() => {
                 setFilter('New Arrivals');
                 scrollToSection('collection');
               }}
-              className={`text-xs font-black uppercase tracking-[0.3em] transition ${
+              className={`text-[13px] font-black uppercase tracking-[0.3em] transition ${
                 filter === 'New Arrivals' ? 'text-zinc-950' : 'text-zinc-500 hover:text-zinc-950'
               }`}
             >
@@ -100,7 +101,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 setFilter('All');
                 scrollToSection('collection');
               }}
-              className={`text-xs font-black uppercase tracking-[0.3em] transition ${
+              className={`text-[13px] font-black uppercase tracking-[0.3em] transition ${
                 filter === 'All' && !searchQuery ? 'text-zinc-950' : 'text-zinc-500 hover:text-zinc-950'
               }`}
             >
@@ -108,13 +109,13 @@ const Navbar: React.FC<NavbarProps> = ({
             </button>
             <button
               onClick={() => scrollToSection('promise')}
-              className="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 transition hover:text-zinc-950"
+              className="text-[13px] font-black uppercase tracking-[0.3em] text-zinc-500 transition hover:text-zinc-950"
             >
               Why Shop Us
             </button>
             <button
               onClick={() => scrollToSection('faq')}
-              className="text-xs font-black uppercase tracking-[0.3em] text-zinc-500 transition hover:text-zinc-950"
+              className="text-[13px] font-black uppercase tracking-[0.3em] text-zinc-500 transition hover:text-zinc-950"
             >
               FAQ
             </button>
@@ -151,7 +152,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className={`flex h-11 w-11 items-center justify-center rounded-full border transition ${
+              className={`flex h-11 w-11 items-center justify-center rounded-full border transition md:h-12 md:w-12 ${
                 isSearchOpen
                   ? 'border-zinc-950 bg-zinc-950 text-white'
                   : 'border-zinc-200 bg-white text-zinc-700 hover:border-zinc-300 hover:text-zinc-950'
@@ -170,27 +171,27 @@ const Navbar: React.FC<NavbarProps> = ({
 
             <button
               onClick={onOpenProfile}
-              className="hidden items-center gap-3 rounded-full border border-zinc-200 bg-white px-4 py-2.5 text-left transition hover:border-zinc-300 md:flex"
+              className="hidden items-center gap-3 rounded-full border border-zinc-200 bg-white px-4 py-2.5 text-left transition hover:border-zinc-300 md:flex md:px-5 md:py-3"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-950 text-[11px] font-black uppercase tracking-[0.2em] text-white">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-zinc-950 text-[11px] font-black uppercase tracking-[0.2em] text-white md:h-10 md:w-10">
                 {wishlist.length}
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-500">Account</p>
-                <p className="text-sm font-bold text-zinc-950">Saved styles</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-500 md:text-[11px]">Account</p>
+                <p className="text-sm font-bold text-zinc-950 md:text-[15px]">Saved styles</p>
               </div>
             </button>
 
             <button
               onClick={onOpenCart}
-              className="flex items-center gap-3 rounded-full bg-zinc-950 px-4 py-2.5 text-white shadow-[0_12px_30px_rgba(15,23,42,0.15)] transition hover:translate-y-[-1px]"
+              className="flex items-center gap-3 rounded-full bg-zinc-950 px-4 py-2.5 text-white shadow-[0_12px_30px_rgba(15,23,42,0.15)] transition hover:translate-y-[-1px] md:px-5 md:py-3"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/12 text-[11px] font-black uppercase tracking-[0.2em]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/12 text-[11px] font-black uppercase tracking-[0.2em] md:h-10 md:w-10">
                 {cartCount}
               </div>
               <div className="hidden text-left md:block">
-                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-300">Bag</p>
-                <p className="text-sm font-bold text-white">Checkout</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-zinc-300 md:text-[11px]">Bag</p>
+                <p className="text-sm font-bold text-white md:text-[15px]">Checkout</p>
               </div>
             </button>
           </div>
@@ -198,7 +199,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
         {isSearchOpen ? (
           <div className="border-t border-white/60 px-4 pb-4 md:hidden">
-            <div className="mx-auto max-w-7xl">
+            <div className="storefront-shell">
               <div className="relative pt-4">
                 <input
                   ref={mobileInputRef}

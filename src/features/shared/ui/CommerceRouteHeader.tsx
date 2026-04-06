@@ -20,17 +20,17 @@ const CommerceRouteHeader: React.FC<CommerceRouteHeaderProps> = ({ eyebrow, titl
   const { wishlist } = useWishlist();
 
   return (
-    <header className="mx-auto mb-10 mt-6 max-w-7xl">
+    <header className="storefront-shell mb-10 mt-6">
       <div className="sticky top-0 z-40 mb-6 border-b border-white/60 bg-[rgba(250,247,242,0.88)] backdrop-blur-xl shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 md:px-6 lg:flex-row lg:items-center lg:justify-between">
+        <div className="storefront-shell flex flex-col gap-4 px-4 py-4 md:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-7 lg:py-5">
           <div className="hidden items-center gap-3 md:flex">
             <Link to="/" className="flex items-center gap-3 transition hover:opacity-80" aria-label="Go to home">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-xs font-black tracking-[0.35em] text-white">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-zinc-950 text-xs font-black tracking-[0.35em] text-white md:h-12 md:w-12">
                 VS
               </div>
               <div className="text-left">
-                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500">Curated Footwear</p>
-                <p className="text-xl font-black tracking-tight text-zinc-950">Velosnak Atelier</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.35em] text-zinc-500 md:text-[11px]">Curated Footwear</p>
+                <p className="text-xl font-black tracking-tight text-zinc-950 md:text-[1.7rem]">Velosnak Atelier</p>
               </div>
             </Link>
           </div>
